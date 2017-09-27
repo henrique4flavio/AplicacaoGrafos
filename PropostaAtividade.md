@@ -1,4 +1,5 @@
 #Tarefas da Primeira Entrega#
+
 ###Antes de começar o projeto devemos cumprir algumas atividades para acompanhamento e desenvolvimento do projeto:###
 
 * O trabalho poderá ser desenvolvido em no máximo 4 pessoas.
