@@ -1,6 +1,6 @@
-#Tarefas da Primeira Entrega#
+# Tarefas da Primeira Entrega
 
-###Antes de começar o projeto devemos cumprir algumas atividades para acompanhamento e desenvolvimento do projeto:###
+### Antes de começar o projeto devemos cumprir algumas atividades para acompanhamento e desenvolvimento do projeto:
 
 * O trabalho poderá ser desenvolvido em no máximo 4 pessoas.
 * Criar um projeto no repositório de código, iremos utilizar o GITHUB (www.github.com)
