@@ -6,12 +6,16 @@
 package grafo;
 
 import java.util.ArrayList;
-import javafx.scene.Node;
 
+/**
+ *
+ * @author Laís Alves
+ */
 public class Graph {
     private ArrayList<Node> node  = new ArrayList<>();
 private ArrayList<Aresta> edged = new ArrayList<>();
-public ArrayList<Node> getNode() {
+
+    public ArrayList<Node> getNode() {
         return node;
     }
 
@@ -26,5 +30,7 @@ public ArrayList<Node> getNode() {
     public void setEdged(ArrayList<Aresta> edged) {
         this.edged = edged;
     }
+
+     
 
 }
