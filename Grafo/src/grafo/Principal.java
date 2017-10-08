@@ -179,12 +179,14 @@ vertices.setText("");
     }//GEN-LAST:event_destinoActionPerformed
 
     private void AdicionarVerticesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AdicionarVerticesActionPerformed
-        
+        graph.getNode().add( new Node( vertices.getText()));
+        JOptionPane.showMessageDialog(rootPane,"Adicionado com Sucesso");
+        acaobotaolimpa();
     }//GEN-LAST:event_AdicionarVerticesActionPerformed
 
     private void botaoAdionarVerticesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoAdionarVerticesActionPerformed
         // TODO add your handling code here:
-        
+        ; // botao que limpa o campo.
     }//GEN-LAST:event_botaoAdionarVerticesActionPerformed
 
     private void BotaoSalvarXmlActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoSalvarXmlActionPerformed
@@ -224,8 +226,6 @@ vertices.setText("");
     private void BotaoVisualizarGrafoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoVisualizarGrafoActionPerformed
         // TODO add your handling code here:
        
-       // JOptionPane.showMessageDialog(null, "No: " + p.getNode(),"Aresta:");
-    
     }//GEN-LAST:event_BotaoVisualizarGrafoActionPerformed
 
     private void verticesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_verticesActionPerformed
@@ -257,6 +257,7 @@ vertices.setText("");
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(Principal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
