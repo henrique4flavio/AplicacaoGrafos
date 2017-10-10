@@ -173,6 +173,11 @@ public class Principal extends javax.swing.JFrame {
 
     private void botaoAdionarVerticesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoAdionarVerticesActionPerformed
 
+        aresta.setSource(Origem.getText());
+        aresta.setTarget(destino.getText());
+        graph.getEdged().add(aresta);
+        JOptionPane.showMessageDialog(rootPane,"Adicionado com Sucesso");
+        acaobotaolimpa();
     }//GEN-LAST:event_botaoAdionarVerticesActionPerformed
 
     private void BotaoSalvarXmlActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoSalvarXmlActionPerformed
