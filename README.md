@@ -1,3 +1,13 @@
+# Aplicação utilizando grafos
+## IF Sudeste MG - Campus Juiz de Fora
+### Alunos:
+*	Flávio Henrique
+* 	Laís Alves
+* 	Jonathas Araújo
+
+#	Disciplina:
+*	 Teoria dos grafos
+
 # Tarefas da Primeira Entrega
 
 ### Antes de começar o projeto devemos cumprir algumas atividades para acompanhamento e desenvolvimento do projeto:
@@ -10,9 +20,6 @@
 * Após a digitação a interface deverá ter a opção de salvar o grafo em xml (use o padrão Graphml).
 * A tela deverá ter também a possibilidade de abrir um grafo salvo previamente (Abrir uma arquivo xml).
 
-# Alunos:
-* Flávio Henrique de Almeida Junior
-* Laís Alves da Silva
-* Jonathas Martins Araujo
+
 
 
