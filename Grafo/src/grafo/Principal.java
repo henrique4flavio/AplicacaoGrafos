@@ -208,9 +208,7 @@ vertices.setText("");
     //  xStream.alias("source",Aresta.class);
       //xStream.addImplicitCollection(Aresta.class,"source");
       
-      
-      
-     
+    
   
         
        File xmlFile = new File("ArquivoXML.xml");
