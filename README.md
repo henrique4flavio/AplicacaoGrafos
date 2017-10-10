@@ -1,14 +1,19 @@
 # Aplicação utilizando grafos
-## IF Sudeste MG - Campus Juiz de Fora
+## Instituto Federal de Educação, Ciência e Tecnologia do Sudeste de Minas Gerais
+
+### Disciplina:
+
+*   Teoria dos grafos
+
 ### Alunos:
+
 *	Flávio Henrique
-* 	Laís Alves
-* 	Jonathas Araújo
+* Laís Alves
+* Jonathas Araújo
 
-#	Disciplina:
-*	 Teoria dos grafos
 
-# Tarefas da Primeira Entrega
+
+### Descrição
 
 ### Antes de começar o projeto devemos cumprir algumas atividades para acompanhamento e desenvolvimento do projeto:
 
