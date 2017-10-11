@@ -1,5 +1,5 @@
 <graph>
-  <node id="a"/>
-  <node id="b"/>
   <edge source="a" target="b"/>
+  <edge source="cd" target="d"/>
+  <edge source="e" target="g"/>
 </graph>

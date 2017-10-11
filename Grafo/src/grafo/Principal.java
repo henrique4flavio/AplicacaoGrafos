@@ -14,7 +14,7 @@ public class Principal extends javax.swing.JFrame {
         initComponents();
     }
     Graph graph = new Graph();
-    Aresta aresta = new Aresta();
+    //Aresta aresta = new Aresta();
 
     public void acaobotaolimpa() {
         Origem.setText("");
@@ -166,13 +166,14 @@ public class Principal extends javax.swing.JFrame {
     }//GEN-LAST:event_destinoActionPerformed
 
     private void AdicionarVerticesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AdicionarVerticesActionPerformed
+       
         graph.getNode().add(new Node(vertices.getText()));
         JOptionPane.showMessageDialog(rootPane, "Adicionado com Sucesso");
         acaobotaolimpa();
     }//GEN-LAST:event_AdicionarVerticesActionPerformed
 
     private void botaoAdionarVerticesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoAdionarVerticesActionPerformed
-
+ Aresta aresta = new Aresta();
         aresta.setSource(Origem.getText());
         aresta.setTarget(destino.getText());
         graph.getEdged().add(aresta);
@@ -183,22 +184,23 @@ public class Principal extends javax.swing.JFrame {
     private void BotaoSalvarXmlActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoSalvarXmlActionPerformed
 
         XStream xStream = new XStream(new DomDriver());  
-        
+         
+
       xStream.alias("graph",Graph.class);  
       xStream.alias("node",Node.class);  
       xStream.alias("edge",Aresta.class);  
+      
+      
       xStream.addImplicitCollection(Graph.class,"node");
       xStream.addImplicitCollection(Graph.class,"edged");
       xStream.useAttributeFor(Node.class,"id");
       
       
-      
-      
          xStream.useAttributeFor(Aresta.class,"source");
           xStream.useAttributeFor(Aresta.class,"target");
-       
+          
        File xmlFile = new File("ArquivoXML.xml");
-
+      
        
 
         try {
