@@ -192,32 +192,14 @@ public class Principal extends javax.swing.JFrame {
       xStream.useAttributeFor(Node.class,"id");
       
       
+      
+      
          xStream.useAttributeFor(Aresta.class,"source");
           xStream.useAttributeFor(Aresta.class,"target");
-      
-   //   xStream.alias("source",Aresta.class);
-    //  xStream.alias("source",Aresta.class);
-      //xStream.addImplicitCollection(Aresta.class,"source");
-      
-    
-  
-        
+       
        File xmlFile = new File("ArquivoXML.xml");
 
-        xStream.alias("graph", Graph.class);
-        xStream.alias("node", Node.class);
-        xStream.alias("edge", Aresta.class);
-        xStream.addImplicitCollection(Graph.class, "node");
-        xStream.addImplicitCollection(Graph.class, "edged");
-        xStream.useAttributeFor(Node.class, "id");
-
-        xStream.useAttributeFor(Aresta.class, "source");
-        xStream.useAttributeFor(Aresta.class, "target");
-
-        //      xStream.alias("source",Aresta.class);
-        //      xStream.alias("source",Aresta.class);
-        //      xStream.addImplicitCollection(Aresta.class,"source");
-        
+       
 
         try {
             xStream.toXML(graph, new FileWriter(xmlFile));
