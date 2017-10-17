@@ -25,6 +25,12 @@
 * Após a digitação a interface deverá ter a opção de salvar o grafo em xml (use o padrão Graphml).
 * A tela deverá ter também a possibilidade de abrir um grafo salvo previamente (Abrir uma arquivo xml).
 
+#### Entrega: 25/10/2016
+* Leitura de um grafo.
+* Mostrar propriedades de um grafos (Ordem, grau, incidentes, adjacentes, etc...).
+* Implementar nas 4 representações.
+* Permitir as operações sobre os grafos (adicionar, remover, etc...).
+* Dar saída para o Grafo (Graficamente na tela).
 
 
 
