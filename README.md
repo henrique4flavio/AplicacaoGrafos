@@ -25,12 +25,13 @@
 * Após a digitação a interface deverá ter a opção de salvar o grafo em xml (use o padrão Graphml).
 * A tela deverá ter também a possibilidade de abrir um grafo salvo previamente (Abrir uma arquivo xml).
 
-#### Entrega: 25/10/2016
-* Leitura de um grafo.
-* Mostrar propriedades de um grafos (Ordem, grau, incidentes, adjacentes, etc...).
-* Implementar nas 4 representações.
-* Permitir as operações sobre os grafos (adicionar, remover, etc...).
-* Dar saída para o Grafo (Graficamente na tela).
+#### Entrega: 01/11/2017
+* O sistema deve ser capaz de mostrar as seguintes informações sobre u grafo: Ordem, Grau de um vértice (Emissão/Recepção), caminho/cadeia de dois vértices, se é simples e elementar, mostre se os vértices são adjacentes, identificar vértices fontes e sumidouro.
+* O sistema deve realiza as operações de Inserção e Remoção em vértices e arestas.
+* Crie um método que exibe o resultado das 3 representações (Matriz de Adjacências, Listas de Adjacências e Matriz de Incidências).
+* O sistema deve exibir o tipo do Grafo (Regular, Completo, Bipartido, MultiGrafo).
+* Prepare sua estrutura para grafo valorado e rotulado.
+* Gerar Saída Visual paro Grafo, Usar API fornecida pelo professor.
 
 
 
