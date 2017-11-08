@@ -15,12 +15,20 @@ public class Principal extends javax.swing.JFrame {
     String opcaoGrafo;
     int grafoOrientado;
     int grafoNaoOrientado;
-    public Principal() {
-        initComponents();
-    }
     Graph graph = new Graph();
-    //Aresta aresta = new Aresta();
+    public Principal() {
+        
+        int i;
+        initComponents();
+        int resultado = 0;
+        while (resultado == 0) {
+            opcaoGrafo = JOptionPane.showInputDialog("Digite tipo de Grafo:  \n 1-Orientado \n 2-Nao Orientado");
+            resultado = opcaoTipoGrafo(opcaoGrafo);
 
+    }
+    
+    //Aresta aresta = new Aresta();
+    }
     public void acaobotaolimpa() {
         Origem.setText("");
         destino.setText("");
