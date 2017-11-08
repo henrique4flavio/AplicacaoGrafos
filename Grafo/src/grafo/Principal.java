@@ -31,13 +31,15 @@ public class Principal extends javax.swing.JFrame {
         vertices = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         Origem = new javax.swing.JTextField();
-        AdicionarVertices = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         destino = new javax.swing.JTextField();
         botaoAdionarVertices = new javax.swing.JButton();
         BotaoSalvarXml = new javax.swing.JButton();
         BotaoVisualizarGrafo = new javax.swing.JButton();
+        AdicionarVertices = new javax.swing.JButton();
+        botaoRemover = new javax.swing.JButton();
+        removerVertice = new javax.swing.JTextField();
 
         jLabel5.setText("jLabel5");
 
@@ -56,13 +58,6 @@ public class Principal extends javax.swing.JFrame {
         Origem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 OrigemActionPerformed(evt);
-            }
-        });
-
-        AdicionarVertices.setText("Adicionar Vertices");
-        AdicionarVertices.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                AdicionarVerticesActionPerformed(evt);
             }
         });
 
@@ -97,54 +92,84 @@ public class Principal extends javax.swing.JFrame {
             }
         });
 
+        AdicionarVertices.setText("Adicionar Vertices");
+        AdicionarVertices.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AdicionarVerticesActionPerformed(evt);
+            }
+        });
+
+        botaoRemover.setText("Remover Vertice");
+        botaoRemover.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botaoRemoverActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addGap(30, 30, 30)
-                        .addComponent(vertices, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(26, 26, 26)
-                        .addComponent(AdicionarVertices))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel3)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(Origem, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(38, 38, 38)
-                                .addComponent(jLabel4))
-                            .addGroup(layout.createSequentialGroup()
+                        .addGap(100, 100, 100)
+                        .addComponent(jLabel3)
+                        .addGap(219, 219, 219)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addComponent(jLabel2)
                                 .addGap(15, 15, 15)))
                         .addGap(18, 18, 18)
                         .addComponent(destino, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(botaoAdionarVertices)))
+                        .addComponent(botaoAdionarVertices))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel1)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(vertices, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(Origem, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(18, 18, 18)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(botaoRemover, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(AdicionarVertices))))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(BotaoSalvarXml)
                     .addComponent(BotaoVisualizarGrafo))
                 .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(311, 311, 311)
+                    .addComponent(removerVertice, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(311, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(42, 42, 42)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(92, 92, 92)
+                        .addComponent(jLabel2)
+                        .addGap(33, 33, 33))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(39, 39, 39)
+                        .addComponent(jLabel1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(vertices, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(AdicionarVertices))
+                        .addGap(16, 16, 16)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(Origem, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(botaoRemover))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, 14, Short.MAX_VALUE)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(vertices, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(AdicionarVertices))
-                .addGap(18, 18, 18)
-                .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Origem, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3)
                     .addComponent(jLabel4)
                     .addComponent(destino, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -153,7 +178,12 @@ public class Principal extends javax.swing.JFrame {
                 .addComponent(BotaoSalvarXml)
                 .addGap(18, 18, 18)
                 .addComponent(BotaoVisualizarGrafo)
-                .addContainerGap(87, Short.MAX_VALUE))
+                .addContainerGap(52, Short.MAX_VALUE))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(154, 154, 154)
+                    .addComponent(removerVertice, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(154, Short.MAX_VALUE)))
         );
 
         pack();
@@ -164,13 +194,6 @@ public class Principal extends javax.swing.JFrame {
 
     private void destinoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_destinoActionPerformed
     }//GEN-LAST:event_destinoActionPerformed
-
-    private void AdicionarVerticesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AdicionarVerticesActionPerformed
-       
-        graph.getNode().add(new Node(vertices.getText()));
-        JOptionPane.showMessageDialog(rootPane, "Adicionado com Sucesso");
-        acaobotaolimpa();
-    }//GEN-LAST:event_AdicionarVerticesActionPerformed
 
     private void botaoAdionarVerticesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoAdionarVerticesActionPerformed
  Aresta aresta = new Aresta();
@@ -235,6 +258,49 @@ public class Principal extends javax.swing.JFrame {
 
     }//GEN-LAST:event_verticesActionPerformed
 
+    private void AdicionarVerticesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AdicionarVerticesActionPerformed
+        if (verificaNo(vertices.getText())) {
+            JOptionPane.showMessageDialog(rootPane, "Vertice já existente!");
+            acaobotaolimpa();
+        } else {
+
+            graph.getNode().add(new Node(vertices.getText()));
+            JOptionPane.showMessageDialog(rootPane, "Adicionado com Sucesso");
+            acaobotaolimpa();
+        }
+    }//GEN-LAST:event_AdicionarVerticesActionPerformed
+
+    private void botaoRemoverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoRemoverActionPerformed
+
+        if (verificaNo(removerVertice.getText())) {
+            ArrayList<Node> vertices = new ArrayList<>();
+            vertices = graph.getNode(); // pegando os vertices da classe graph
+
+            String excluir = removerVertice.getText();
+
+            for (Node n : vertices) {
+
+                String v = n.getId();
+
+                if (v.equals(excluir)) {
+
+                    vertices.remove(n);
+
+                    graph.setNode(vertices);
+                    break;
+
+                }
+
+            }
+            acaobotaolimpa();
+            JOptionPane.showMessageDialog(rootPane, "Excluido com Sucesso");
+        } else {
+            JOptionPane.showMessageDialog(rootPane, "O vertice digitado não existe!");
+            acaobotaolimpa();
+
+        }
+    }//GEN-LAST:event_botaoRemoverActionPerformed
+
     public static void main(String args[]) {
 
         try {
@@ -267,12 +333,14 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JButton BotaoVisualizarGrafo;
     private javax.swing.JTextField Origem;
     private javax.swing.JButton botaoAdionarVertices;
+    private javax.swing.JButton botaoRemover;
     private javax.swing.JTextField destino;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JTextField removerVertice;
     private javax.swing.JTextField vertices;
     // End of variables declaration//GEN-END:variables
 }
