@@ -249,6 +249,74 @@ private ArrayList<Aresta> edged = new ArrayList<>();
         }
         return null;
     }
+public ArrayList<Node> getCadeiaAuxiliar (Node noAtual, Node noProcurado, ArrayList<Aresta> listaPassagem) {
+
+        int i, n;
+
+        ArrayList<Node> listaSaidas = new ArrayList<>();
+        ArrayList<Aresta> listaAuxPassagem = new ArrayList<>();
+        ArrayList<Aresta> listaAuxEdge = new ArrayList<>();
+        listaAuxEdge = this.getEdged();
+
+        for (n = 0; n < this.edged.size(); n++) {
+            if (listaPassagem.contains(listaAuxEdge.get(n))) {
+                listaAuxEdge.remove(listaAuxEdge.get(n));
+            }
+        }
+
+        for (i = 0; i < listaAuxEdge.size(); i++) {
+            if (this.getEdged().get(i).getDirected()) {
+                if (noAtual.getId().equals(listaAuxEdge.get(i).getSource().getId())) {
+                    listaSaidas.add(listaAuxEdge.get(i).getTarget());
+                    listaAuxPassagem.add(listaAuxEdge.get(i));
+                    if (listaAuxEdge.get(i).getTarget().getId().equals(noProcurado.getId())) {
+                        ArrayList listaCaminho = new ArrayList();
+                        listaCaminho.add(noProcurado);
+                        listaCaminho.add(listaCaminho.size(), noAtual);
+                        return listaCaminho;
+                    }
+                }
+            } else {
+                if (noAtual.getId().equals(listaAuxEdge.get(i).getSource().getId())) {
+                    listaSaidas.add(listaAuxEdge.get(i).getTarget());
+                    listaAuxPassagem.add(listaAuxEdge.get(i));
+                    if (listaAuxEdge.get(i).getTarget().getId().equals(noProcurado.getId())) {
+                        ArrayList listaCaminho = new ArrayList();
+                        listaCaminho.add(noProcurado);
+                        listaCaminho.add(0, noAtual);
+                        return listaCaminho;
+                    }
+                } else if (noAtual.getId().equals(listaAuxEdge.get(i).getTarget().getId())) {
+                    listaSaidas.add(listaAuxEdge.get(i).getSource());
+                    listaAuxPassagem.add(listaAuxEdge.get(i));
+                    if (listaAuxEdge.get(i).getSource().getId().equals(noProcurado.getId())) {
+                        ArrayList listaCaminho = new ArrayList();
+                        listaCaminho.add(noProcurado);
+                        listaCaminho.add(0, noAtual);
+                        return listaCaminho;
+                    }
+                }
+            }
+
+        }
+
+        if (listaSaidas.size()
+                > 0) {
+            int j;
+
+            for (j = 0; j < listaSaidas.size(); j++) {
+                listaPassagem.add(listaAuxPassagem.get(j));
+                ArrayList caminho = this.getCadeiaAuxiliar(listaSaidas.get(j), noProcurado, listaPassagem);
+                if (caminho != null) {
+                    caminho.add(0, noAtual);
+                    return caminho;
+                }
+            }
+        }
+
+        return null;
+    }
+
 
      
 }
