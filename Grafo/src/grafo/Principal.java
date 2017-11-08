@@ -12,6 +12,9 @@ import javax.swing.table.DefaultTableModel;
 
 public class Principal extends javax.swing.JFrame {
 
+    String opcaoGrafo;
+    int grafoOrientado;
+    int grafoNaoOrientado;
     public Principal() {
         initComponents();
     }
@@ -36,6 +39,31 @@ public class Principal extends javax.swing.JFrame {
 
         }
         return false;
+    }
+
+    public int getIndiceNode(Node no) {
+        int i;
+        for (i = 0; i < graph.getNode().size(); i++) {
+            if (no.getId().equals(graph.getNode().get(i).getId())) {
+                return i;
+            }
+        }
+
+        return -1;
+    }
+public int opcaoTipoGrafo(String opcaoGrafo) {
+        if (this.opcaoGrafo.equals("1")) {
+
+            this.grafoOrientado = 1;
+
+            return 1;
+
+        }
+        if (opcaoGrafo.equals("2")) {
+            this.grafoNaoOrientado = 2;
+            return 1;
+        }
+        return 0; // retorna zero caso nenhuma dessas opções for realizada.
     }
 
     @SuppressWarnings("unchecked")
@@ -161,7 +189,7 @@ public class Principal extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Ordem do Grafo", "Vertice", "Emissao", "Vertice", "Recepção", "Fonte", "Sumidouro", "Adjascencia", "cadeia", "caminho", "elementar", "simples"
+                "Ordem do Grafo", "Vertice", "Emissao", "Vertice", "Recepção", "Fonte", "Sumidouro", "Adjascencia", "cadeia", "simples", "elementar", "caminho"
             }
         ) {
             Class[] types = new Class [] {
@@ -212,9 +240,9 @@ public class Principal extends javax.swing.JFrame {
                     .addComponent(BotaoVisualizarGrafo)
                     .addComponent(botaoRemoverAresta)
                     .addComponent(botaoAdionarAresta, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 118, Short.MAX_VALUE)
+                .addGap(27, 27, 27)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 686, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(62, 62, 62))
+                .addContainerGap(153, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
