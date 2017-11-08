@@ -4,29 +4,46 @@ package grafo;
 import java.util.ArrayList;
 
 public class Aresta {
-        private String source;
-        private String target;
-  
 
-    public String getSource() {
+    private Node source;
+    private Node target;
+    private Boolean directed;
+    private static int id = 0;
+
+    public Aresta(Node source, Node target) {
+        this.id++;
+        this.source = source;
+        this.target = target;
+        this.directed = false;
+    }
+
+    public Aresta(Node source, Node target, Boolean directed) {
+        this.id++;
+        this.source = source;
+        this.target = target;
+        this.directed = directed;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public Aresta() {
+
+    }
+
+    public Boolean getDirected() {
+        return directed;
+    }
+
+    public Node getSource() {
         return source;
     }
 
-    public void setSource(String source) {
-        this.source = source;
-    }
-
-    public String getTarget() {
+    public Node getTarget() {
         return target;
     }
 
-    public void setTarget(String target) {
-        this.target = target;
-    }
+    
 
-         
-
-   
-
- 
 }
