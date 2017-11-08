@@ -6,7 +6,9 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Vector;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 public class Principal extends javax.swing.JFrame {
 
@@ -60,6 +62,10 @@ public class Principal extends javax.swing.JFrame {
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         tipoGrafo = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tabela = new javax.swing.JTable();
+        infoGrafico = new javax.swing.JButton();
+        infoGrafico1 = new javax.swing.JButton();
 
         jLabel5.setText("jLabel5");
 
@@ -150,15 +156,65 @@ public class Principal extends javax.swing.JFrame {
             }
         });
 
+        tabela.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Ordem do Grafo", "Vertice", "Emissao", "Vertice", "Recepção", "Fonte", "Sumidouro", "Adjascencia", "cadeia", "caminho", "elementar", "simples"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
+        jScrollPane1.setViewportView(tabela);
+
+        infoGrafico.setText("Informacoes do Grafico");
+        infoGrafico.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                infoGraficoActionPerformed(evt);
+            }
+        });
+
+        infoGrafico1.setText("Informacoes do Grafico");
+        infoGrafico1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                infoGrafico1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jLabel6)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel7)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(8, 8, 8)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel8)
+                            .addComponent(excluirOrigem, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(excluirDestino, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel9)))
+                    .addComponent(BotaoSalvarXml)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(origem, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(destino, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(BotaoVisualizarGrafo)
+                    .addComponent(botaoRemoverAresta)
+                    .addComponent(botaoAdionarAresta, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 118, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 686, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(62, 62, 62))
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
@@ -169,40 +225,32 @@ public class Principal extends javax.swing.JFrame {
                                     .addComponent(jLabel1)
                                     .addComponent(vertices, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addComponent(Origem, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jLabel3))
+                            .addComponent(jLabel3)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel6)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel7)))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(botaoRemover, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(AdicionarVertices)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel8)
-                            .addComponent(excluirOrigem, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(excluirDestino, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel9)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(BotaoSalvarXml)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(origem, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(destino, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 620, Short.MAX_VALUE)
-                                .addComponent(tipoGrafo))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(BotaoVisualizarGrafo))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(botaoRemoverAresta, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(botaoAdionarAresta)))
-                .addGap(57, 57, 57))
+                                .addComponent(AdicionarVertices)
+                                .addGap(57, 57, 57))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(botaoRemover, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(tipoGrafo)
+                                .addGap(48, 48, 48))))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(infoGrafico1)
+                        .addGap(348, 348, 348))))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(421, 421, 421)
+                    .addComponent(infoGrafico)
+                    .addContainerGap(421, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -216,35 +264,47 @@ public class Principal extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Origem, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(botaoRemover))
-                .addGap(33, 33, 33)
-                .addComponent(jLabel3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel6)
-                    .addComponent(jLabel7))
-                .addGap(1, 1, 1)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(origem, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(destino, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(botaoRemover)
                     .addComponent(tipoGrafo))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(botaoAdionarAresta)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 16, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel8)
-                    .addComponent(jLabel9))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(excluirOrigem, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(excluirDestino, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(botaoRemoverAresta)
-                .addGap(18, 18, 18)
-                .addComponent(BotaoSalvarXml)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(BotaoVisualizarGrafo)
-                .addGap(15, 15, 15))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(33, 33, 33)
+                        .addComponent(jLabel3)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel6)
+                            .addComponent(jLabel7))
+                        .addGap(1, 1, 1)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(origem, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(destino, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(botaoAdionarAresta)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 24, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel8)
+                            .addComponent(jLabel9))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(excluirOrigem, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(excluirDestino, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(botaoRemoverAresta)
+                        .addGap(18, 18, 18)
+                        .addComponent(BotaoSalvarXml)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(BotaoVisualizarGrafo)
+                        .addGap(15, 15, 15))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(infoGrafico1)
+                        .addGap(18, 18, 18)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 249, javax.swing.GroupLayout.PREFERRED_SIZE))))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(204, 204, 204)
+                    .addComponent(infoGrafico)
+                    .addContainerGap(210, Short.MAX_VALUE)))
         );
 
         pack();
@@ -414,6 +474,642 @@ public class Principal extends javax.swing.JFrame {
         areaRepresentacao.setText(infoGrafo);
     }//GEN-LAST:event_tipoGrafoActionPerformed
 
+    private void infoGraficoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_infoGraficoActionPerformed
+        // TODO add your handling code here:
+        int numeroVertice = graph.getNode().size(); // Ordem de um grafo.
+        System.out.println(numeroVertice);
+        ArrayList<Node> vertices = new ArrayList<>();
+        vertices = graph.getNode();
+        ArrayList<Aresta> arestas = new ArrayList<>();
+        arestas = graph.getEdged();
+        // calculando a ordem do grafo
+        Vector Ordem = new Vector();
+        Vector VerticeFonteOrientado = new Vector();
+        Vector VerticeSumidouroOrientado = new Vector();
+        Ordem.add(numeroVertice); // adionando o valor da ordem do grafo em um vetor
+        //  DefaultTableModel val = (DefaultTableModel) tabela.getModel();
+        DefaultTableModel val = (DefaultTableModel) tabela.getModel();
+
+        val.addRow(Ordem);// passa o objeto para adicionar na tabela
+        //Vector Grau = new Vector();
+        // for onde calculao grau de Emissao de cada vertice caso o grafo nao for orientado.
+
+        if (grafoNaoOrientado == 2) {
+            for (Node n : vertices) {
+                Vector Grau = new Vector();
+                int grau = 0;
+                String vertice = n.getId();
+
+                for (Aresta a : arestas) {
+                    String source = a.getSource().getId();
+                    String target = a.getTarget().getId();
+
+                    if (vertice.equals(source) || vertice.equals(target)) {
+                        // HashSet g = new HashSet();
+                        grau++;
+
+                        Grau.add("");
+
+                        if (Grau.contains(vertice)) {
+                            int i = Grau.indexOf(vertice);
+                            // retornando o index do vertice
+                            Grau.set(i + 1, grau);
+                            //Grau.indexOf(grau,)
+                            // Grau.add(grau);
+                        } else {
+
+                            Grau.add(vertice);
+                            Grau.add(grau);
+                        }
+
+                        // foi adionado o "" para que a primeira coluna comece com zero
+                    }
+
+                }
+                val.addRow(Grau);
+
+            }
+        }
+        // emissao do grafo orientado
+        if (grafoOrientado == 1) {
+            // Vector Grau = new Vector();
+            for (Node n : vertices) {
+                Vector Grau = new Vector();
+                int grau = 0;
+                String vertice = n.getId();
+
+                for (Aresta a : arestas) {
+                    String source = a.getSource().getId();
+                    String target = a.getTarget().getId();
+
+                    if (vertice.equals(source)) {
+                        // HashSet g = new HashSet();
+                        grau++;
+
+                        Grau.add("");
+                        VerticeSumidouroOrientado.add(vertice);
+                        VerticeSumidouroOrientado.add(grau);
+                        if (Grau.contains(vertice)) {
+                            int i = Grau.indexOf(vertice);
+                            // retornando o index do vertice
+                            Grau.set(i + 1, grau);
+
+                            int j = VerticeSumidouroOrientado.indexOf(vertice);
+                            VerticeSumidouroOrientado.set(j + 1, grau);
+                        } else {
+
+                            Grau.add(vertice);
+                            Grau.add(grau);
+
+                            VerticeSumidouroOrientado.add(vertice);
+                            VerticeSumidouroOrientado.add(grau);
+                        }
+
+                        // foi adionado o "" para que a primeira coluna comece com zero
+                    } else if (Grau.contains(vertice)) {
+
+                    } else {
+                        Grau.add("");
+                        Grau.add(vertice);
+                        Grau.add(grau);
+
+                        VerticeSumidouroOrientado.add(vertice);
+                        VerticeSumidouroOrientado.add(grau);
+                    }
+
+                }
+
+                val.addRow(Grau);
+            }
+
+        }
+        // contagem dos vertices sumidouro do grafo orientado.
+        if (grafoOrientado == 1) {
+            for (Node n : vertices) {
+                Vector vet = new Vector();
+                if ((VerticeSumidouroOrientado.contains(n.getId()))) {
+                    int indexVertice = VerticeSumidouroOrientado.indexOf(n.getId());
+
+                    int grauVertice = (int) VerticeSumidouroOrientado.get(indexVertice + 1);
+                    String verticeFonte = n.getId();
+                    if (grauVertice == 0) {
+                        vet.add("");
+                        vet.add("");
+                        vet.add("");
+                        vet.add("");
+                        vet.add("");
+                        vet.add("");
+
+                        vet.add(verticeFonte);
+
+                        System.out.println("" + vet);
+                        // val.addRow(vet);
+                    }
+                    // val.addRow(vet);
+                }
+                val.addRow(vet);
+
+            }
+            //val.addRow(vet);
+
+        }
+        // Recepção de um grafo orientado.
+        if (grafoOrientado == 1) {
+            for (Node n : vertices) {
+                Vector Grau = new Vector();
+                int grau = 0;
+                String vertice = n.getId();
+
+                for (Aresta a : arestas) {
+                    String source = a.getSource().getId();
+                    String target = a.getTarget().getId();
+
+                    if (vertice.equals(target)) {
+                        // HashSet g = new HashSet();
+                        grau++;
+
+                        Grau.add("");
+                        Grau.add("");
+                        Grau.add("");
+                        VerticeFonteOrientado.add(vertice);
+                        VerticeFonteOrientado.add(grau);
+
+                        if (Grau.contains(vertice)) {
+                            int i = Grau.indexOf(vertice);
+                            // retornando o index do vertice
+                            Grau.set(i + 1, grau);
+
+                            int j = VerticeFonteOrientado.indexOf(vertice);
+                            VerticeFonteOrientado.set(j + 1, grau);
+                            //Grau.indexOf(grau,)
+                            // Grau.add(grau);
+                        } else {
+
+                            Grau.add(vertice);
+                            Grau.add(grau);
+                            VerticeFonteOrientado.add(vertice);
+                            VerticeFonteOrientado.add(grau);
+                        }
+
+                        // foi adionado o "" para que a primeira coluna comece com zero
+                    } else if (Grau.contains(vertice)) {
+
+                    } else {
+                        Grau.add("");
+                        Grau.add("");
+                        Grau.add("");
+                        Grau.add(vertice);
+                        Grau.add(grau);
+
+                        VerticeFonteOrientado.add(vertice);
+                        VerticeFonteOrientado.add(grau);
+
+                    }
+
+                }
+                val.addRow(Grau);
+
+            }
+        }
+        // fazendo a contagem dos vertices fontes orientado.
+        if (grafoOrientado == 1) {
+            for (Node n : vertices) {
+                Vector vet = new Vector();
+                if ((VerticeFonteOrientado.contains(n.getId()))) {
+                    int indexVertice = VerticeFonteOrientado.indexOf(n.getId());
+
+                    int grauVertice = (int) VerticeFonteOrientado.get(indexVertice + 1);
+                    String verticeFonte = n.getId();
+                    if (grauVertice == 0) {
+                        vet.add("");
+                        vet.add("");
+                        vet.add("");
+                        vet.add("");
+                        vet.add("");
+
+                        vet.add(verticeFonte);
+
+                        System.out.println("" + vet);
+                        // val.addRow(vet);
+                    }
+                    // val.addRow(vet);
+                }
+                val.addRow(vet);
+
+            }
+            //val.addRow(vet);
+
+        }
+        if (grafoNaoOrientado == 2) {
+            for (Node n : vertices) {
+                Vector Grau = new Vector();
+                int grau = 0;
+                String vertice = n.getId();
+
+                for (Aresta a : arestas) {
+                    String source = a.getSource().getId();
+                    String target = a.getTarget().getId();
+
+                    if (vertice.equals(source) || vertice.equals(target)) {
+                        // HashSet g = new HashSet();
+                        grau++;
+
+                        Grau.add("");
+                        Grau.add("");
+                        Grau.add("");
+                        //VerticeFonteNaoOrientado.add(vertice);
+                        //VerticeFonteNaoOrientado.add(grau);
+
+                        if (Grau.contains(vertice)) {
+                            int i = Grau.indexOf(vertice);
+                            // retornando o index do vertice
+                            Grau.set(i + 1, grau);
+
+                            int j = Grau.indexOf(vertice);
+                            Grau.set(j + 1, grau);
+                            //Grau.indexOf(grau,)
+                            // Grau.add(grau);
+                        } else {
+
+                            Grau.add(vertice);
+                            Grau.add(grau);
+                        }
+
+                        // foi adionado o "" para que a primeira coluna comece com zero
+                    }
+
+                }
+                val.addRow(Grau);
+
+            }
+        }
+
+        // Mostrando a adjascencia do grafo.
+        Vector incidencia = new Vector();
+        for (Aresta a : arestas) {
+            String source = a.getSource().getId();
+            String target = a.getTarget().getId();
+            //Vector incidencia = new Vector();
+            incidencia.add("");
+            incidencia.add("");
+            incidencia.add("");
+            incidencia.add("");
+            incidencia.add("");
+            incidencia.add("");
+            incidencia.add("");
+
+            incidencia.add("" + source + "-" + "" + target);
+
+        }
+        val.addRow(incidencia);
+        //cadeira de um grafo.
+        Vector cadeia = new Vector();
+
+        Aresta a = arestas.get(0);
+        String source = a.getSource().getId();
+        String target = a.getTarget().getId();
+        //Vector incidencia = new Vector();
+        cadeia.add("");
+        cadeia.add("");
+        cadeia.add("");
+        cadeia.add("");
+        cadeia.add("");
+        cadeia.add("");
+        cadeia.add("");
+        cadeia.add("");
+        //cadeia.add("");
+
+        cadeia.add("" + source + "-" + target);
+
+        val.addRow(cadeia);
+        /// grafo orintado-> verificacao se é elementar.
+
+        /* Importante !!!
+        InformacoesGrafico telaInfo= new InformacoesGrafico();
+        telaInfo.setVisible(true);
+        // dispose fecha a tela anterior
+        dispose();
+        */
+    }//GEN-LAST:event_infoGraficoActionPerformed
+
+    private void infoGrafico1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_infoGrafico1ActionPerformed
+        // TODO add your handling code here:
+        int numeroVertice = graph.getNode().size(); // Ordem de um grafo.
+        System.out.println(numeroVertice);
+        ArrayList<Node> vertices = new ArrayList<>();
+        vertices = graph.getNode();
+        ArrayList<Aresta> arestas = new ArrayList<>();
+        arestas = graph.getEdged();
+        // calculando a ordem do grafo
+        Vector Ordem = new Vector();
+        Vector VerticeFonteOrientado = new Vector();
+        Vector VerticeSumidouroOrientado = new Vector();
+        Ordem.add(numeroVertice); // adionando o valor da ordem do grafo em um vetor
+        //  DefaultTableModel val = (DefaultTableModel) tabela.getModel();
+        DefaultTableModel val = (DefaultTableModel) tabela.getModel();
+
+        val.addRow(Ordem);// passa o objeto para adicionar na tabela
+        //Vector Grau = new Vector();
+        // for onde calculao grau de Emissao de cada vertice caso o grafo nao for orientado.
+
+        if (grafoNaoOrientado == 2) {
+            for (Node n : vertices) {
+                Vector Grau = new Vector();
+                int grau = 0;
+                String vertice = n.getId();
+
+                for (Aresta a : arestas) {
+                    String source = a.getSource().getId();
+                    String target = a.getTarget().getId();
+
+                    if (vertice.equals(source) || vertice.equals(target)) {
+                        // HashSet g = new HashSet();
+                        grau++;
+
+                        Grau.add("");
+
+                        if (Grau.contains(vertice)) {
+                            int i = Grau.indexOf(vertice);
+                            // retornando o index do vertice
+                            Grau.set(i + 1, grau);
+                            //Grau.indexOf(grau,)
+                            // Grau.add(grau);
+                        } else {
+
+                            Grau.add(vertice);
+                            Grau.add(grau);
+                        }
+
+                        // foi adionado o "" para que a primeira coluna comece com zero
+                    }
+
+                }
+                val.addRow(Grau);
+
+            }
+        }
+        // emissao do grafo orientado
+        if (grafoOrientado == 1) {
+            // Vector Grau = new Vector();
+            for (Node n : vertices) {
+                Vector Grau = new Vector();
+                int grau = 0;
+                String vertice = n.getId();
+
+                for (Aresta a : arestas) {
+                    String source = a.getSource().getId();
+                    String target = a.getTarget().getId();
+
+                    if (vertice.equals(source)) {
+                        // HashSet g = new HashSet();
+                        grau++;
+
+                        Grau.add("");
+                        VerticeSumidouroOrientado.add(vertice);
+                        VerticeSumidouroOrientado.add(grau);
+                        if (Grau.contains(vertice)) {
+                            int i = Grau.indexOf(vertice);
+                            // retornando o index do vertice
+                            Grau.set(i + 1, grau);
+
+                            int j = VerticeSumidouroOrientado.indexOf(vertice);
+                            VerticeSumidouroOrientado.set(j + 1, grau);
+                        } else {
+
+                            Grau.add(vertice);
+                            Grau.add(grau);
+
+                            VerticeSumidouroOrientado.add(vertice);
+                            VerticeSumidouroOrientado.add(grau);
+                        }
+
+                        // foi adionado o "" para que a primeira coluna comece com zero
+                    } else if (Grau.contains(vertice)) {
+
+                    } else {
+                        Grau.add("");
+                        Grau.add(vertice);
+                        Grau.add(grau);
+
+                        VerticeSumidouroOrientado.add(vertice);
+                        VerticeSumidouroOrientado.add(grau);
+                    }
+
+                }
+
+                val.addRow(Grau);
+            }
+
+        }
+        // contagem dos vertices sumidouro do grafo orientado.
+        if (grafoOrientado == 1) {
+            for (Node n : vertices) {
+                Vector vet = new Vector();
+                if ((VerticeSumidouroOrientado.contains(n.getId()))) {
+                    int indexVertice = VerticeSumidouroOrientado.indexOf(n.getId());
+
+                    int grauVertice = (int) VerticeSumidouroOrientado.get(indexVertice + 1);
+                    String verticeFonte = n.getId();
+                    if (grauVertice == 0) {
+                        vet.add("");
+                        vet.add("");
+                        vet.add("");
+                        vet.add("");
+                        vet.add("");
+                        vet.add("");
+
+                        vet.add(verticeFonte);
+
+                        System.out.println("" + vet);
+                        // val.addRow(vet);
+                    }
+                    // val.addRow(vet);
+                }
+                val.addRow(vet);
+
+            }
+            //val.addRow(vet);
+
+        }
+        // Recepção de um grafo orientado.
+        if (grafoOrientado == 1) {
+            for (Node n : vertices) {
+                Vector Grau = new Vector();
+                int grau = 0;
+                String vertice = n.getId();
+
+                for (Aresta a : arestas) {
+                    String source = a.getSource().getId();
+                    String target = a.getTarget().getId();
+
+                    if (vertice.equals(target)) {
+                        // HashSet g = new HashSet();
+                        grau++;
+
+                        Grau.add("");
+                        Grau.add("");
+                        Grau.add("");
+                        VerticeFonteOrientado.add(vertice);
+                        VerticeFonteOrientado.add(grau);
+
+                        if (Grau.contains(vertice)) {
+                            int i = Grau.indexOf(vertice);
+                            // retornando o index do vertice
+                            Grau.set(i + 1, grau);
+
+                            int j = VerticeFonteOrientado.indexOf(vertice);
+                            VerticeFonteOrientado.set(j + 1, grau);
+                            //Grau.indexOf(grau,)
+                            // Grau.add(grau);
+                        } else {
+
+                            Grau.add(vertice);
+                            Grau.add(grau);
+                            VerticeFonteOrientado.add(vertice);
+                            VerticeFonteOrientado.add(grau);
+                        }
+
+                        // foi adionado o "" para que a primeira coluna comece com zero
+                    } else if (Grau.contains(vertice)) {
+
+                    } else {
+                        Grau.add("");
+                        Grau.add("");
+                        Grau.add("");
+                        Grau.add(vertice);
+                        Grau.add(grau);
+
+                        VerticeFonteOrientado.add(vertice);
+                        VerticeFonteOrientado.add(grau);
+
+                    }
+
+                }
+                val.addRow(Grau);
+
+            }
+        }
+        // fazendo a contagem dos vertices fontes orientado.
+        if (grafoOrientado == 1) {
+            for (Node n : vertices) {
+                Vector vet = new Vector();
+                if ((VerticeFonteOrientado.contains(n.getId()))) {
+                    int indexVertice = VerticeFonteOrientado.indexOf(n.getId());
+
+                    int grauVertice = (int) VerticeFonteOrientado.get(indexVertice + 1);
+                    String verticeFonte = n.getId();
+                    if (grauVertice == 0) {
+                        vet.add("");
+                        vet.add("");
+                        vet.add("");
+                        vet.add("");
+                        vet.add("");
+
+                        vet.add(verticeFonte);
+
+                        System.out.println("" + vet);
+                        // val.addRow(vet);
+                    }
+                    // val.addRow(vet);
+                }
+                val.addRow(vet);
+
+            }
+            //val.addRow(vet);
+
+        }
+        if (grafoNaoOrientado == 2) {
+            for (Node n : vertices) {
+                Vector Grau = new Vector();
+                int grau = 0;
+                String vertice = n.getId();
+
+                for (Aresta a : arestas) {
+                    String source = a.getSource().getId();
+                    String target = a.getTarget().getId();
+
+                    if (vertice.equals(source) || vertice.equals(target)) {
+                        // HashSet g = new HashSet();
+                        grau++;
+
+                        Grau.add("");
+                        Grau.add("");
+                        Grau.add("");
+                        //VerticeFonteNaoOrientado.add(vertice);
+                        //VerticeFonteNaoOrientado.add(grau);
+
+                        if (Grau.contains(vertice)) {
+                            int i = Grau.indexOf(vertice);
+                            // retornando o index do vertice
+                            Grau.set(i + 1, grau);
+
+                            int j = Grau.indexOf(vertice);
+                            Grau.set(j + 1, grau);
+                            //Grau.indexOf(grau,)
+                            // Grau.add(grau);
+                        } else {
+
+                            Grau.add(vertice);
+                            Grau.add(grau);
+                        }
+
+                        // foi adionado o "" para que a primeira coluna comece com zero
+                    }
+
+                }
+                val.addRow(Grau);
+
+            }
+        }
+
+        // Mostrando a adjascencia do grafo.
+        Vector incidencia = new Vector();
+        for (Aresta a : arestas) {
+            String source = a.getSource().getId();
+            String target = a.getTarget().getId();
+            //Vector incidencia = new Vector();
+            incidencia.add("");
+            incidencia.add("");
+            incidencia.add("");
+            incidencia.add("");
+            incidencia.add("");
+            incidencia.add("");
+            incidencia.add("");
+
+            incidencia.add("" + source + "-" + "" + target);
+
+        }
+        val.addRow(incidencia);
+        //cadeira de um grafo.
+        Vector cadeia = new Vector();
+
+        Aresta a = arestas.get(0);
+        String source = a.getSource().getId();
+        String target = a.getTarget().getId();
+        //Vector incidencia = new Vector();
+        cadeia.add("");
+        cadeia.add("");
+        cadeia.add("");
+        cadeia.add("");
+        cadeia.add("");
+        cadeia.add("");
+        cadeia.add("");
+        cadeia.add("");
+        //cadeia.add("");
+
+        cadeia.add("" + source + "-" + target);
+
+        val.addRow(cadeia);
+        /// grafo orintado-> verificacao se é elementar.
+
+        /* Importante !!!
+        InformacoesGrafico telaInfo= new InformacoesGrafico();
+        telaInfo.setVisible(true);
+        // dispose fecha a tela anterior
+        dispose();
+        */
+    }//GEN-LAST:event_infoGrafico1ActionPerformed
+
     public static void main(String args[]) {
 
         try {
@@ -451,6 +1147,8 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JTextField destino;
     private javax.swing.JTextField excluirDestino;
     private javax.swing.JTextField excluirOrigem;
+    private javax.swing.JButton infoGrafico;
+    private javax.swing.JButton infoGrafico1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel5;
@@ -458,7 +1156,9 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField origem;
+    private javax.swing.JTable tabela;
     private javax.swing.JButton tipoGrafo;
     private javax.swing.JTextField vertices;
     // End of variables declaration//GEN-END:variables
