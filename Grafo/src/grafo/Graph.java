@@ -160,7 +160,39 @@ private ArrayList<Aresta> edged = new ArrayList<>();
         }
         return infoGrafo;
     }
-    
+     public ArrayList<Node> getCaminho(Node noAtual, Node noProcurado) {
+
+        int i;
+        ArrayList<Node> listaSaidas = new ArrayList<>();
+        for (i = 0; i < this.edged.size(); i++) {
+            if (noAtual.getId().equals(this.edged.get(i).getSource().getId())) {
+                listaSaidas.add(this.edged.get(i).getTarget());
+                if (this.edged.get(i).getTarget().getId().equals(noProcurado.getId())) {
+                    ArrayList listaCaminho = new ArrayList();
+                    listaCaminho.add(noProcurado);
+                    listaCaminho.add(0, noAtual);
+                    return listaCaminho;
+                }
+            }
+        }
+        if (listaSaidas.size() > 0) {
+            int j;
+
+            for (j = 0; j < listaSaidas.size(); j++) {
+                ArrayList caminho = this.getCaminho(listaSaidas.get(j), noProcurado);
+                if (caminho != null) {
+
+                    caminho.add(0, noAtual);
+
+                    return caminho;
+                }
+            }
+        }
+
+        return null;
+
+    }
+
      
 }
      
