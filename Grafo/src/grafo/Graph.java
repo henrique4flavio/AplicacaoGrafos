@@ -24,6 +24,9 @@ private ArrayList<Aresta> edged = new ArrayList<>();
     public void setEdged(ArrayList<Aresta> edged) {
         this.edged = edged;
     }
+      public void addAresta(Aresta a) {
+        this.edged.add(a);
+    }
     
     public int getIndiceNode(Node no) {
         int i;

@@ -336,9 +336,9 @@ public int opcaoTipoGrafo(String opcaoGrafo) {
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jLabel1)
-                                    .addComponent(jLabel2))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jLabel1))
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(layout.createSequentialGroup()
                                         .addGap(18, 18, 18)
@@ -369,7 +369,6 @@ public int opcaoTipoGrafo(String opcaoGrafo) {
                                         .addGap(18, 18, 18)
                                         .addComponent(BotaoVisualizarGrafo))))
                             .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 224, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(infoGrafico)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 249, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -974,7 +973,9 @@ public int opcaoTipoGrafo(String opcaoGrafo) {
             }
         });
     }
-
+    private javax.swing.JTextField excluirDestino;
+    private javax.swing.JTextField excluirOrigem;
+    private javax.swing.JTextField vertices;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton AdicionarVertices;
     private javax.swing.JButton BotaoSalvarXml;
