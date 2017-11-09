@@ -30,9 +30,13 @@ public class Principal extends javax.swing.JFrame {
     //Aresta aresta = new Aresta();
     }
     public void acaobotaolimpa() {
-        Origem.setText("");
+        origem.setText("");
         destino.setText("");
         vertices.setText("");
+        removerVertice.setText("");
+        excluirOrigem.setText(""); // campos da interface grafica
+        excluirDestino.setText("");
+
     }
     public Boolean verificaNo(String vertice) {
         ArrayList<Node> vertices = new ArrayList<>();
@@ -79,49 +83,39 @@ public int opcaoTipoGrafo(String opcaoGrafo) {
     private void initComponents() {
 
         jLabel5 = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
-        vertices = new javax.swing.JTextField();
-        Origem = new javax.swing.JTextField();
-        jLabel3 = new javax.swing.JLabel();
         BotaoSalvarXml = new javax.swing.JButton();
         BotaoVisualizarGrafo = new javax.swing.JButton();
         AdicionarVertices = new javax.swing.JButton();
         botaoRemover = new javax.swing.JButton();
-        origem = new javax.swing.JTextField();
-        destino = new javax.swing.JTextField();
-        botaoAdionarAresta = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        botaoRemoverAresta = new javax.swing.JButton();
-        excluirOrigem = new javax.swing.JTextField();
-        excluirDestino = new javax.swing.JTextField();
-        jLabel8 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
         tipoGrafo = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         tabela = new javax.swing.JTable();
         infoGrafico = new javax.swing.JButton();
-        infoGrafico1 = new javax.swing.JButton();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        areaRepresentacao = new javax.swing.JTextArea();
+        vertices1 = new javax.swing.JTextField();
+        removerVertice = new javax.swing.JTextField();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        origem = new javax.swing.JTextField();
+        destino = new javax.swing.JTextField();
+        botaoAdionarAresta = new javax.swing.JButton();
+        excluirOrigem1 = new javax.swing.JTextField();
+        jLabel12 = new javax.swing.JLabel();
+        excluirDestino1 = new javax.swing.JTextField();
+        jLabel13 = new javax.swing.JLabel();
+        botaoRemoverAresta1 = new javax.swing.JButton();
+        matrizAdjacencia = new javax.swing.JButton();
+        listaAdjacencia = new javax.swing.JButton();
+        matrizIncidencia = new javax.swing.JButton();
 
         jLabel5.setText("jLabel5");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
-        jLabel1.setText("Vertices ");
-
-        vertices.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                verticesActionPerformed(evt);
-            }
-        });
-
-        Origem.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                OrigemActionPerformed(evt);
-            }
-        });
-
-        jLabel3.setText("Arestas");
 
         BotaoSalvarXml.setText("Salvar XML");
         BotaoSalvarXml.addActionListener(new java.awt.event.ActionListener() {
@@ -151,39 +145,9 @@ public int opcaoTipoGrafo(String opcaoGrafo) {
             }
         });
 
-        origem.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                origemActionPerformed(evt);
-            }
-        });
-
-        destino.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                destinoActionPerformed(evt);
-            }
-        });
-
-        botaoAdionarAresta.setText("Adicionar Aresta");
-        botaoAdionarAresta.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                botaoAdionarArestaActionPerformed(evt);
-            }
-        });
-
         jLabel6.setText("Origem");
 
         jLabel7.setText("Destino");
-
-        botaoRemoverAresta.setText("Remover Aresta");
-        botaoRemoverAresta.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                botaoRemoverArestaActionPerformed(evt);
-            }
-        });
-
-        jLabel8.setText("Origem");
-
-        jLabel9.setText("Destino");
 
         tipoGrafo.setText("Tipo do Grafo");
         tipoGrafo.addActionListener(new java.awt.event.ActionListener() {
@@ -217,10 +181,70 @@ public int opcaoTipoGrafo(String opcaoGrafo) {
             }
         });
 
-        infoGrafico1.setText("Informacoes do Grafico");
-        infoGrafico1.addActionListener(new java.awt.event.ActionListener() {
+        areaRepresentacao.setEditable(false);
+        areaRepresentacao.setColumns(20);
+        areaRepresentacao.setRows(5);
+        jScrollPane3.setViewportView(areaRepresentacao);
+
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel1.setText("Vertices: ");
+
+        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel2.setText("Arestas: ");
+
+        jLabel10.setText("Origem");
+
+        jLabel11.setText("Destino");
+
+        origem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                infoGrafico1ActionPerformed(evt);
+                origemActionPerformed(evt);
+            }
+        });
+
+        destino.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                destinoActionPerformed(evt);
+            }
+        });
+
+        botaoAdionarAresta.setText("Adicionar Aresta");
+        botaoAdionarAresta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botaoAdionarArestaActionPerformed(evt);
+            }
+        });
+
+        jLabel12.setText("Origem");
+
+        jLabel13.setText("Destino");
+
+        botaoRemoverAresta1.setText("Remover Aresta");
+        botaoRemoverAresta1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botaoRemoverAresta1ActionPerformed(evt);
+            }
+        });
+
+        matrizAdjacencia.setText("Matriz de Adjacências");
+        matrizAdjacencia.setToolTipText("");
+        matrizAdjacencia.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                matrizAdjacenciaActionPerformed(evt);
+            }
+        });
+
+        listaAdjacencia.setText("Listas de Adjacências");
+        listaAdjacencia.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                listaAdjacenciaActionPerformed(evt);
+            }
+        });
+
+        matrizIncidencia.setText("Matriz de Incidências");
+        matrizIncidencia.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                matrizIncidenciaActionPerformed(evt);
             }
         });
 
@@ -228,126 +252,132 @@ public int opcaoTipoGrafo(String opcaoGrafo) {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(8, 8, 8)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel8)
-                            .addComponent(excluirOrigem, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(excluirDestino, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel9)))
-                    .addComponent(BotaoSalvarXml)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(origem, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(destino, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(BotaoVisualizarGrafo)
-                    .addComponent(botaoRemoverAresta)
-                    .addComponent(botaoAdionarAresta, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(27, 27, 27)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 686, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(153, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(28, 28, 28)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 616, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(50, 707, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jLabel1)
-                                    .addComponent(vertices, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addComponent(Origem, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jLabel3)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel6)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel7)))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel6)
+                            .addComponent(jLabel7))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(vertices1, javax.swing.GroupLayout.DEFAULT_SIZE, 39, Short.MAX_VALUE)
+                            .addComponent(removerVertice))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(AdicionarVertices)
+                            .addComponent(botaoRemover, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(96, 96, 96)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(AdicionarVertices)
-                                .addGap(57, 57, 57))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jLabel11)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(destino, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(jLabel13)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(excluirDestino1, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jLabel10)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(origem, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(59, 59, 59)
+                                        .addComponent(jLabel12)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(excluirOrigem1, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGap(49, 49, 49)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(BotaoSalvarXml)
+                                    .addComponent(BotaoVisualizarGrafo)))
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(botaoRemover, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(tipoGrafo)
-                                .addGap(48, 48, 48))))
+                                .addComponent(botaoAdionarAresta)
+                                .addGap(27, 27, 27)
+                                .addComponent(botaoRemoverAresta1))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(106, 106, 106)
+                        .addComponent(jLabel1)
+                        .addGap(247, 247, 247)
+                        .addComponent(jLabel2))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(infoGrafico1)
-                        .addGap(348, 348, 348))))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(421, 421, 421)
-                    .addComponent(infoGrafico)
-                    .addContainerGap(421, Short.MAX_VALUE)))
+                        .addContainerGap()
+                        .addComponent(infoGrafico)
+                        .addGap(238, 238, 238)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 393, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(matrizAdjacencia, javax.swing.GroupLayout.DEFAULT_SIZE, 158, Short.MAX_VALUE)
+                    .addComponent(listaAdjacencia, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(matrizIncidencia, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(tipoGrafo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(12, 12, 12))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(27, 27, 27)
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(vertices, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(AdicionarVertices))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Origem, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(botaoRemover)
-                    .addComponent(tipoGrafo))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(33, 33, 33)
-                        .addComponent(jLabel3)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel6)
-                            .addComponent(jLabel7))
-                        .addGap(1, 1, 1)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(origem, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(destino, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(botaoAdionarAresta)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 24, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel8)
-                            .addComponent(jLabel9))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(excluirOrigem, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(excluirDestino, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(botaoRemoverAresta)
+                        .addGap(23, 23, 23)
+                        .addComponent(matrizAdjacencia)
                         .addGap(18, 18, 18)
-                        .addComponent(BotaoSalvarXml)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(BotaoVisualizarGrafo)
-                        .addGap(15, 15, 15))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(infoGrafico1)
+                        .addComponent(listaAdjacencia)
                         .addGap(18, 18, 18)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 249, javax.swing.GroupLayout.PREFERRED_SIZE))))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(204, 204, 204)
-                    .addComponent(infoGrafico)
-                    .addContainerGap(210, Short.MAX_VALUE)))
+                        .addComponent(matrizIncidencia)
+                        .addGap(18, 18, 18)
+                        .addComponent(tipoGrafo)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabel1)
+                                    .addComponent(jLabel2))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(18, 18, 18)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                            .addComponent(AdicionarVertices)
+                                            .addComponent(vertices1, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(jLabel6)
+                                            .addComponent(jLabel10)
+                                            .addComponent(origem, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(excluirOrigem1, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(jLabel12))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                            .addComponent(removerVertice, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(botaoRemover)
+                                            .addComponent(jLabel7)
+                                            .addComponent(jLabel11)
+                                            .addComponent(destino, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(excluirDestino1, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(jLabel13))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                            .addComponent(botaoAdionarAresta)
+                                            .addComponent(botaoRemoverAresta1)))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(14, 14, 14)
+                                        .addComponent(BotaoSalvarXml)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(BotaoVisualizarGrafo))))
+                            .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 224, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(infoGrafico)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 249, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void OrigemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_OrigemActionPerformed
-    }//GEN-LAST:event_OrigemActionPerformed
 
     private void BotaoSalvarXmlActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoSalvarXmlActionPerformed
 
@@ -399,10 +429,6 @@ public int opcaoTipoGrafo(String opcaoGrafo) {
 
     }//GEN-LAST:event_BotaoVisualizarGrafoActionPerformed
 
-    private void verticesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_verticesActionPerformed
-
-    }//GEN-LAST:event_verticesActionPerformed
-
     private void AdicionarVerticesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AdicionarVerticesActionPerformed
         if (verificaNo(vertices.getText())) {
             JOptionPane.showMessageDialog(rootPane, "Vertice já existente!");
@@ -445,63 +471,6 @@ public int opcaoTipoGrafo(String opcaoGrafo) {
 
         }
     }//GEN-LAST:event_botaoRemoverActionPerformed
-
-    private void origemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_origemActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_origemActionPerformed
-
-    private void destinoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_destinoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_destinoActionPerformed
-
-    private void botaoAdionarArestaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoAdionarArestaActionPerformed
-        // TODO add your handling code here:
-        if (verificaNo(origem.getText()) && verificaNo(destino.getText())) {
-
-            Node source = new Node(origem.getText());
-            Node target = new Node(destino.getText());
-
-            Aresta aresta = new Aresta(source, target, rootPaneCheckingEnabled);
-
-            ArrayList arestas = new ArrayList();
-            arestas.add(aresta);
-            graph.addAresta(aresta);
-            //graph.getEdged().add(aresta);
-            JOptionPane.showMessageDialog(rootPane, "Adicionado com Sucesso");
-            acaobotaolimpa(); // botao que limpa o campo.
-        } else {
-            JOptionPane.showMessageDialog(rootPane, "Vertice Informado não existe!");
-            acaobotaolimpa(); // botao que limpa o campo.
-
-        }
-    }//GEN-LAST:event_botaoAdionarArestaActionPerformed
-
-    private void botaoRemoverArestaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoRemoverArestaActionPerformed
-        ArrayList<Aresta> arestas = new ArrayList<>();
-        arestas = graph.getEdged(); // pegando os vertices da classe graph
-
-        String origem = excluirOrigem.getText(); // campos da interface grafica
-        String destino = excluirDestino.getText();
-
-        for (Aresta a : arestas) {
-
-            Node source = a.getSource();
-            Node target = a.getTarget();
-
-            if (origem.equals(source) && destino.equals(target)) {
-
-                arestas.remove(a);
-
-                graph.setEdged(arestas);
-                break;
-
-            }
-
-        }
-        acaobotaolimpa();
-        JOptionPane.showMessageDialog(rootPane, "Excluido com Sucesso");
-
-    }//GEN-LAST:event_botaoRemoverArestaActionPerformed
 
     private void tipoGrafoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tipoGrafoActionPerformed
         String infoGrafo = "";
@@ -828,323 +797,157 @@ public int opcaoTipoGrafo(String opcaoGrafo) {
         */
     }//GEN-LAST:event_infoGraficoActionPerformed
 
-    private void infoGrafico1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_infoGrafico1ActionPerformed
+    private void origemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_origemActionPerformed
         // TODO add your handling code here:
-        int numeroVertice = graph.getNode().size(); // Ordem de um grafo.
-        System.out.println(numeroVertice);
-        ArrayList<Node> vertices = new ArrayList<>();
-        vertices = graph.getNode();
+    }//GEN-LAST:event_origemActionPerformed
+
+    private void destinoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_destinoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_destinoActionPerformed
+
+    private void botaoAdionarArestaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoAdionarArestaActionPerformed
+        // TODO add your handling code here:
+        if (verificaNo(origem.getText()) && verificaNo(destino.getText())) {
+
+            Node source = new Node(origem.getText());
+            Node target = new Node(destino.getText());
+
+            Aresta aresta = new Aresta(source, target, rootPaneCheckingEnabled);
+
+            ArrayList arestas = new ArrayList();
+            arestas.add(aresta);
+            graph.addAresta(aresta);
+            //graph.getEdged().add(aresta);
+            JOptionPane.showMessageDialog(rootPane, "Adicionado com Sucesso");
+            acaobotaolimpa(); // botao que limpa o campo.
+        } else {
+            JOptionPane.showMessageDialog(rootPane, "Vertice Informado não existe!");
+            acaobotaolimpa(); // botao que limpa o campo.
+
+        }
+    }//GEN-LAST:event_botaoAdionarArestaActionPerformed
+
+    private void botaoRemoverAresta1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoRemoverAresta1ActionPerformed
         ArrayList<Aresta> arestas = new ArrayList<>();
-        arestas = graph.getEdged();
-        // calculando a ordem do grafo
-        Vector Ordem = new Vector();
-        Vector VerticeFonteOrientado = new Vector();
-        Vector VerticeSumidouroOrientado = new Vector();
-        Ordem.add(numeroVertice); // adionando o valor da ordem do grafo em um vetor
-        //  DefaultTableModel val = (DefaultTableModel) tabela.getModel();
-        DefaultTableModel val = (DefaultTableModel) tabela.getModel();
+        arestas = graph.getEdged(); // pegando os vertices da classe graph
 
-        val.addRow(Ordem);// passa o objeto para adicionar na tabela
-        //Vector Grau = new Vector();
-        // for onde calculao grau de Emissao de cada vertice caso o grafo nao for orientado.
+        String origem = excluirOrigem.getText(); // campos da interface grafica
+        String destino = excluirDestino.getText();
 
-        if (grafoNaoOrientado == 2) {
-            for (Node n : vertices) {
-                Vector Grau = new Vector();
-                int grau = 0;
-                String vertice = n.getId();
-
-                for (Aresta a : arestas) {
-                    String source = a.getSource().getId();
-                    String target = a.getTarget().getId();
-
-                    if (vertice.equals(source) || vertice.equals(target)) {
-                        // HashSet g = new HashSet();
-                        grau++;
-
-                        Grau.add("");
-
-                        if (Grau.contains(vertice)) {
-                            int i = Grau.indexOf(vertice);
-                            // retornando o index do vertice
-                            Grau.set(i + 1, grau);
-                            //Grau.indexOf(grau,)
-                            // Grau.add(grau);
-                        } else {
-
-                            Grau.add(vertice);
-                            Grau.add(grau);
-                        }
-
-                        // foi adionado o "" para que a primeira coluna comece com zero
-                    }
-
-                }
-                val.addRow(Grau);
-
-            }
-        }
-        // emissao do grafo orientado
-        if (grafoOrientado == 1) {
-            // Vector Grau = new Vector();
-            for (Node n : vertices) {
-                Vector Grau = new Vector();
-                int grau = 0;
-                String vertice = n.getId();
-
-                for (Aresta a : arestas) {
-                    String source = a.getSource().getId();
-                    String target = a.getTarget().getId();
-
-                    if (vertice.equals(source)) {
-                        // HashSet g = new HashSet();
-                        grau++;
-
-                        Grau.add("");
-                        VerticeSumidouroOrientado.add(vertice);
-                        VerticeSumidouroOrientado.add(grau);
-                        if (Grau.contains(vertice)) {
-                            int i = Grau.indexOf(vertice);
-                            // retornando o index do vertice
-                            Grau.set(i + 1, grau);
-
-                            int j = VerticeSumidouroOrientado.indexOf(vertice);
-                            VerticeSumidouroOrientado.set(j + 1, grau);
-                        } else {
-
-                            Grau.add(vertice);
-                            Grau.add(grau);
-
-                            VerticeSumidouroOrientado.add(vertice);
-                            VerticeSumidouroOrientado.add(grau);
-                        }
-
-                        // foi adionado o "" para que a primeira coluna comece com zero
-                    } else if (Grau.contains(vertice)) {
-
-                    } else {
-                        Grau.add("");
-                        Grau.add(vertice);
-                        Grau.add(grau);
-
-                        VerticeSumidouroOrientado.add(vertice);
-                        VerticeSumidouroOrientado.add(grau);
-                    }
-
-                }
-
-                val.addRow(Grau);
-            }
-
-        }
-        // contagem dos vertices sumidouro do grafo orientado.
-        if (grafoOrientado == 1) {
-            for (Node n : vertices) {
-                Vector vet = new Vector();
-                if ((VerticeSumidouroOrientado.contains(n.getId()))) {
-                    int indexVertice = VerticeSumidouroOrientado.indexOf(n.getId());
-
-                    int grauVertice = (int) VerticeSumidouroOrientado.get(indexVertice + 1);
-                    String verticeFonte = n.getId();
-                    if (grauVertice == 0) {
-                        vet.add("");
-                        vet.add("");
-                        vet.add("");
-                        vet.add("");
-                        vet.add("");
-                        vet.add("");
-
-                        vet.add(verticeFonte);
-
-                        System.out.println("" + vet);
-                        // val.addRow(vet);
-                    }
-                    // val.addRow(vet);
-                }
-                val.addRow(vet);
-
-            }
-            //val.addRow(vet);
-
-        }
-        // Recepção de um grafo orientado.
-        if (grafoOrientado == 1) {
-            for (Node n : vertices) {
-                Vector Grau = new Vector();
-                int grau = 0;
-                String vertice = n.getId();
-
-                for (Aresta a : arestas) {
-                    String source = a.getSource().getId();
-                    String target = a.getTarget().getId();
-
-                    if (vertice.equals(target)) {
-                        // HashSet g = new HashSet();
-                        grau++;
-
-                        Grau.add("");
-                        Grau.add("");
-                        Grau.add("");
-                        VerticeFonteOrientado.add(vertice);
-                        VerticeFonteOrientado.add(grau);
-
-                        if (Grau.contains(vertice)) {
-                            int i = Grau.indexOf(vertice);
-                            // retornando o index do vertice
-                            Grau.set(i + 1, grau);
-
-                            int j = VerticeFonteOrientado.indexOf(vertice);
-                            VerticeFonteOrientado.set(j + 1, grau);
-                            //Grau.indexOf(grau,)
-                            // Grau.add(grau);
-                        } else {
-
-                            Grau.add(vertice);
-                            Grau.add(grau);
-                            VerticeFonteOrientado.add(vertice);
-                            VerticeFonteOrientado.add(grau);
-                        }
-
-                        // foi adionado o "" para que a primeira coluna comece com zero
-                    } else if (Grau.contains(vertice)) {
-
-                    } else {
-                        Grau.add("");
-                        Grau.add("");
-                        Grau.add("");
-                        Grau.add(vertice);
-                        Grau.add(grau);
-
-                        VerticeFonteOrientado.add(vertice);
-                        VerticeFonteOrientado.add(grau);
-
-                    }
-
-                }
-                val.addRow(Grau);
-
-            }
-        }
-        // fazendo a contagem dos vertices fontes orientado.
-        if (grafoOrientado == 1) {
-            for (Node n : vertices) {
-                Vector vet = new Vector();
-                if ((VerticeFonteOrientado.contains(n.getId()))) {
-                    int indexVertice = VerticeFonteOrientado.indexOf(n.getId());
-
-                    int grauVertice = (int) VerticeFonteOrientado.get(indexVertice + 1);
-                    String verticeFonte = n.getId();
-                    if (grauVertice == 0) {
-                        vet.add("");
-                        vet.add("");
-                        vet.add("");
-                        vet.add("");
-                        vet.add("");
-
-                        vet.add(verticeFonte);
-
-                        System.out.println("" + vet);
-                        // val.addRow(vet);
-                    }
-                    // val.addRow(vet);
-                }
-                val.addRow(vet);
-
-            }
-            //val.addRow(vet);
-
-        }
-        if (grafoNaoOrientado == 2) {
-            for (Node n : vertices) {
-                Vector Grau = new Vector();
-                int grau = 0;
-                String vertice = n.getId();
-
-                for (Aresta a : arestas) {
-                    String source = a.getSource().getId();
-                    String target = a.getTarget().getId();
-
-                    if (vertice.equals(source) || vertice.equals(target)) {
-                        // HashSet g = new HashSet();
-                        grau++;
-
-                        Grau.add("");
-                        Grau.add("");
-                        Grau.add("");
-                        //VerticeFonteNaoOrientado.add(vertice);
-                        //VerticeFonteNaoOrientado.add(grau);
-
-                        if (Grau.contains(vertice)) {
-                            int i = Grau.indexOf(vertice);
-                            // retornando o index do vertice
-                            Grau.set(i + 1, grau);
-
-                            int j = Grau.indexOf(vertice);
-                            Grau.set(j + 1, grau);
-                            //Grau.indexOf(grau,)
-                            // Grau.add(grau);
-                        } else {
-
-                            Grau.add(vertice);
-                            Grau.add(grau);
-                        }
-
-                        // foi adionado o "" para que a primeira coluna comece com zero
-                    }
-
-                }
-                val.addRow(Grau);
-
-            }
-        }
-
-        // Mostrando a adjascencia do grafo.
-        Vector incidencia = new Vector();
         for (Aresta a : arestas) {
-            String source = a.getSource().getId();
-            String target = a.getTarget().getId();
-            //Vector incidencia = new Vector();
-            incidencia.add("");
-            incidencia.add("");
-            incidencia.add("");
-            incidencia.add("");
-            incidencia.add("");
-            incidencia.add("");
-            incidencia.add("");
 
-            incidencia.add("" + source + "-" + "" + target);
+            Node source = a.getSource();
+            Node target = a.getTarget();
+
+            if (origem.equals(source) && destino.equals(target)) {
+
+                arestas.remove(a);
+
+                graph.setEdged(arestas);
+                break;
+
+            }
 
         }
-        val.addRow(incidencia);
-        //cadeira de um grafo.
-        Vector cadeia = new Vector();
+        acaobotaolimpa();
+        JOptionPane.showMessageDialog(rootPane, "Excluido com Sucesso");
 
-        Aresta a = arestas.get(0);
-        String source = a.getSource().getId();
-        String target = a.getTarget().getId();
-        //Vector incidencia = new Vector();
-        cadeia.add("");
-        cadeia.add("");
-        cadeia.add("");
-        cadeia.add("");
-        cadeia.add("");
-        cadeia.add("");
-        cadeia.add("");
-        cadeia.add("");
-        //cadeia.add("");
+    }//GEN-LAST:event_botaoRemoverAresta1ActionPerformed
 
-        cadeia.add("" + source + "-" + target);
+    private void matrizAdjacenciaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_matrizAdjacenciaActionPerformed
+        if (graph == null) {
+            JOptionPane.showMessageDialog(this, "Grafo nulo!!!");
+        } else {
+            if (graph.getEdged().size() > 0) {
+                int n = graph.getNode().size();
+                //int m = grafo.getEdges().size();
+                int i, j;
+                String str = "\t";
+                for (i = 0; i < n; i++) {
+                    str += graph.getNode().get(i).getId() + "\t";
+                }
+                str += "\n";
+                for (i = 0; i < n; i++) {
+                    str += graph.getNode().get(i).getId() + " :\t";
+                    for (j = 0; j < n; j++) {
 
-        val.addRow(cadeia);
-        /// grafo orintado-> verificacao se é elementar.
+                        str += graph.getMatrizAdjacencia()[i][j] + "\t";
 
-        /* Importante !!!
-        InformacoesGrafico telaInfo= new InformacoesGrafico();
-        telaInfo.setVisible(true);
-        // dispose fecha a tela anterior
-        dispose();
-        */
-    }//GEN-LAST:event_infoGrafico1ActionPerformed
+                    }
+                    str += "\n";
+                }
+                areaRepresentacao.setText(str);
+            } else {
+
+            }
+
+        }
+    }//GEN-LAST:event_matrizAdjacenciaActionPerformed
+
+    private void listaAdjacenciaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_listaAdjacenciaActionPerformed
+        if (graph == null) {
+            JOptionPane.showMessageDialog(this, "Grafo nulo!!!");
+
+        } else {
+            if (graph.getEdged().size() > 0) {
+                int i, j;
+
+                String str = "";
+                for (i = 0; i < graph.getListaDeAdjacencia().size(); i++) {
+                    str += graph.getNode().get(i).getId() + " :\t";
+                    ArrayList<Node> listaNo = graph.getListaDeAdjacencia().get(i);
+
+                    System.out.println(listaNo.size());
+                    for (j = 0; j < listaNo.size(); j++) {
+
+                        str += listaNo.get(j).getId() + "  ";
+                    }
+                    str += "\n";
+
+                }
+                System.out.println(str);
+                areaRepresentacao.setText(str);
+            }
+
+        }
+    }//GEN-LAST:event_listaAdjacenciaActionPerformed
+
+    private void matrizIncidenciaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_matrizIncidenciaActionPerformed
+        if (graph == null) {
+            JOptionPane.showMessageDialog(this, "Grafo nulo!!!");
+
+        } else {
+            if (graph.getEdged().size() > 0) {
+                int linha = graph.getNode().size();
+                int coluna = graph.getEdged().size();
+                int i, j;
+                String str = "\t";
+                for (i = 0; i < coluna; i++) {
+                    str += graph.getEdged().get(i).getId() + "\t";
+                }
+                str += "\n";
+                for (i = 0; i < linha; i++) {
+                    str += graph.getNode().get(i).getId() + " :\t";
+                    for (j = 0; j < coluna; j++) {
+
+                        str += graph.getMatrizIncidencia()[i][j] + "\t";
+
+                    }
+                    str += "\n";
+
+                }
+                str += "Legenda:";
+                str += "\n";
+                str += "1: Saida";
+                str += "\n";
+                str += "-1: Chegada";
+                str += "\n";
+                str += "2: Saida e chegada";
+                areaRepresentacao.setText(str);
+            }
+
+        }
+    }//GEN-LAST:event_matrizIncidenciaActionPerformed
 
     public static void main(String args[]) {
 
@@ -1176,26 +979,32 @@ public int opcaoTipoGrafo(String opcaoGrafo) {
     private javax.swing.JButton AdicionarVertices;
     private javax.swing.JButton BotaoSalvarXml;
     private javax.swing.JButton BotaoVisualizarGrafo;
-    private javax.swing.JTextField Origem;
+    private javax.swing.JTextArea areaRepresentacao;
     private javax.swing.JButton botaoAdionarAresta;
     private javax.swing.JButton botaoRemover;
-    private javax.swing.JButton botaoRemoverAresta;
+    private javax.swing.JButton botaoRemoverAresta1;
     private javax.swing.JTextField destino;
-    private javax.swing.JTextField excluirDestino;
-    private javax.swing.JTextField excluirOrigem;
+    private javax.swing.JTextField excluirDestino1;
+    private javax.swing.JTextField excluirOrigem1;
     private javax.swing.JButton infoGrafico;
-    private javax.swing.JButton infoGrafico1;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JButton listaAdjacencia;
+    private javax.swing.JButton matrizAdjacencia;
+    private javax.swing.JButton matrizIncidencia;
     private javax.swing.JTextField origem;
+    private javax.swing.JTextField removerVertice;
     private javax.swing.JTable tabela;
     private javax.swing.JButton tipoGrafo;
-    private javax.swing.JTextField vertices;
+    private javax.swing.JTextField vertices1;
     // End of variables declaration//GEN-END:variables
 }
