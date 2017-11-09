@@ -52,6 +52,7 @@ private ArrayList<Aresta> edged = new ArrayList<>();
         }
         return grau;
     }
+    
 
     private Boolean verificaBipartido(int indice, int vetor[]) {
 
@@ -316,6 +317,135 @@ public ArrayList<Node> getCadeiaAuxiliar (Node noAtual, Node noProcurado, ArrayL
 
         return null;
     }
+public int[][] getMatrizAdjacencia() {
+
+        int n = this.getNode().size();
+        int m = this.getEdged().size();
+        int[][] matrizAdjacencia = new int[n][n];
+        int i, j, k;
+
+        for (i = 0; i < n; i++) {
+            for (j = 0; j < n; j++) {
+                boolean teste = this.isAdjacente(this.getNode().get(i), this.getNode().get(j));
+                if (teste) {
+                    for (k = 0; k < m; k++) {
+                        for (k = 0; k < m; k++) {
+                            if (this.getEdged().get(k).getDirected()) {
+                                if (this.edged.get(k).getSource().getId().equals(this.getNode().get(i).getId())
+                                        && this.edged.get(k).getTarget().getId().equals(this.getNode().get(j).getId())) {
+                                    matrizAdjacencia[i][j] = 1;
+
+                                }
+                            } else {
+                                matrizAdjacencia[i][j] = 1;
+
+                            }
+                        }
+
+                    }
+
+                }
+            }
+
+        }
+        return matrizAdjacencia;
+    }
+ public boolean isAdjacente(Node no1, Node no2) {
+        int i;
+        for (i = 0; i < this.edged.size(); i++) {
+            if (this.edged.get(i).getSource().getId().equals(no1.getId()) && this.edged.get(i).getTarget().getId().equals(no2.getId())
+                    || this.edged.get(i).getSource().getId().equals(no2.getId()) && this.edged.get(i).getTarget().getId().equals(no1.getId())) {
+
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public Aresta getAdjacenteEdge(Node no1, Node no2) {
+        int i;
+        for (i = 0; i < this.edged.size(); i++) {
+            if (this.edged.get(i).getSource() == no1 && this.edged.get(i).getTarget() == no2) {
+                return this.edged.get(i);
+            }
+            if (this.edged.get(i).getSource() == no2 && this.edged.get(i).getTarget() == no1) {
+                return this.edged.get(i);
+            }
+
+        }
+        return null;
+    }
+
+    public ArrayList<Node> getNosAdjacentes(Node no1) {
+        ArrayList<Node> adjacentes = new ArrayList<>();
+        int i;
+        for (i = 0; i < this.getNode().size(); i++) {
+            if (this.isAdjacente(no1, this.getNode().get(i))) {
+                adjacentes.add(this.getNode().get(i));
+            }
+        }
+
+        return adjacentes;
+    }
+
+    public ArrayList<ArrayList<Node>> getListaDeAdjacencia() {
+        int i, j;
+        ArrayList<ArrayList<Node>> lista = new ArrayList<>();
+        for (i = 0; i < this.node.size(); i++) {
+            ArrayList<Node> listaAux = new ArrayList<>();
+            for (j = 0; j < this.edged.size(); j++) {
+                if (this.edged.get(j).getDirected()) {
+                    if (this.edged.get(j).getSource().getId().equals(this.node.get(i).getId())) {
+                        listaAux.add(this.edged.get(j).getTarget());
+                    }
+                } else {
+                    if (this.edged.get(j).getSource().getId().equals(this.node.get(i).getId())) {
+                        listaAux.add(this.edged.get(j).getTarget());
+                    }
+                    if (this.edged.get(j).getTarget().getId().equals(this.node.get(i).getId())) {
+                        listaAux.add(this.edged.get(j).getSource());
+                    }
+                }
+            }
+            lista.add(listaAux);
+        }
+        return lista;
+    }
+
+    public int[][] getMatrizIncidencia() {
+        int linha = this.getNode().size();
+        int coluna = this.getEdged().size();
+        int[][] matrizIncidencia = new int[linha][coluna];
+        int i, j;
+        for (i = 0; i < linha; i++) {
+            for (j = 0; j < coluna; j++) {
+                if (this.getEdged().get(j).getDirected()) {
+
+                    if (this.getNode().get(i).getId().equals(this.getEdged().get(j).getSource().getId()) && this.getNode().get(i).getId().equals(this.getEdged().get(j).getTarget().getId())) {
+                        matrizIncidencia[i][j] = 2;
+                    } else {
+                        if (this.getNode().get(i).getId().equals(this.getEdged().get(j).getSource().getId())) {
+                            matrizIncidencia[i][j] = 1;
+                        }
+                        if (this.getNode().get(i).getId().equals(this.getEdged().get(j).getTarget().getId())) {
+                            matrizIncidencia[i][j] = -1;
+                        }
+                    }
+                } else {
+                    if (this.getNode().get(i).getId().equals(this.getEdged().get(j).getSource().getId()) && this.getNode().get(i).getId().equals(this.getEdged().get(j).getTarget().getId())) {
+                        matrizIncidencia[i][j] = 2;
+                    } else if ((this.getNode().get(i).getId().equals(this.getEdged().get(j).getSource().getId()))
+                            || (this.getNode().get(i).getId().equals(this.getEdged().get(j).getTarget().getId()))) {
+                        matrizIncidencia[i][j] = 1;
+
+                    }
+                }
+            }
+        }
+
+        return matrizIncidencia;
+    }
+
 
 
      
