@@ -1,0 +1,7 @@
+<Graph id="Daves" ordenacao="directed">
+  <Node id="a"/>
+  <Node id="b"/>
+  <Node id="c"/>
+  <edge id="a1" source="a" target="b" valor="3"/>
+  <edge id="b1" source="b" target="c" valor="9"/>
+</Graph>

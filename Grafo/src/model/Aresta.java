@@ -100,4 +100,3 @@ public class Aresta implements Comparable<Aresta> {
         return null;
     }
 }
-
