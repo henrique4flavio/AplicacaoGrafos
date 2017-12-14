@@ -1,4 +1,4 @@
-<Graph id="">
+<Graph id="Grafo">
   <Node id="a"/>
   <Node id="b"/>
   <edge id="aresta1" source="a" target="b" valor="3"/>
