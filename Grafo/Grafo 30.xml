@@ -1,7 +1,0 @@
-<Graph id="Grafo 30" ordenacao="directed">
-  <Node id="a"/>
-  <Node id="b"/>
-  <Node id="j"/>
-  <edge id="aa" source="a" target="b" valor="3"/>
-  <edge id="jj" source="a" target="j" valor="9"/>
-</Graph>

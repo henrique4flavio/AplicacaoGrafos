@@ -1,9 +1,0 @@
-<Graph id="Grafo de teste" ordenacao="directed">
-  <Node id="a"/>
-  <Node id="b"/>
-  <Node id="c"/>
-  <Node id="d"/>
-  <edge id="Aresta 1" source="a" target="b" valor="2"/>
-  <edge id="Aresta 2" source="b" target="c" valor="2"/>
-  <edge id="Aresta 3" source="c" target="d" valor="3"/>
-</Graph>

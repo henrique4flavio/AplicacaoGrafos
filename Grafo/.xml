@@ -1,5 +1,5 @@
-<Graph id="">
-  <Node id="a"/>
-  <Node id="b"/>
-  <edge id="aresta1" source="a" target="b" valor="3"/>
+<Graph id="" ordenacao="unidirected">
+  <Node id="c"/>
+  <Node id="d"/>
+  <edge id="c1" source="c" target="d" valor="3"/>
 </Graph>

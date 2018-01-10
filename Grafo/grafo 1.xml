@@ -1,6 +1,0 @@
-<Graph id="grafo 1" ordenacao="directed">
-  <Node id="a"/>
-  <Node id="b"/>
-  <edge id="" source="a" target="b" valor="3"/>
-  <edge id="" source="a" target="b" valor="1"/>
-</Graph>
