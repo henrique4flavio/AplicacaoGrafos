@@ -1,4 +1,4 @@
-<Graph id="" ordenacao="directed">
+<Graph id="ColoracaoHeuristica" ordenacao="directed">
   <Node id="A - VERMELHO"/>
   <Node id="B - ROXO"/>
   <Node id="C - AZUL"/>
