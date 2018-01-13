@@ -1,31 +1,25 @@
-<Graph id="" ordenacao="directed">
-  <Node id="A - VERMELHO"/>
-  <Node id="B - ROXO"/>
-  <Node id="C - AZUL"/>
-  <Node id="D - ROXO"/>
-  <Node id="E - VERMELHO"/>
-  <Node id="F - ROXO"/>
-  <Node id="G - AZUL"/>
-  <Node id="H - AZUL"/>
-  <Node id="I - ROXO"/>
-  <Node id=" J - VERMELHO"/>
-  <edge id="a1" source="A - VERMELHO" target="B - ROXO" valor="2"/>
-  <edge id="a2" source="A - VERMELHO" target="C - AZUL" valor="4"/>
-  <edge id="a3" source="A - VERMELHO" target="I - ROXO" valor="3"/>
-  <edge id="a4" source="A - VERMELHO" target="H - AZUL" valor="1"/>
-  <edge id="a5" source="A - VERMELHO" target="F - ROXO" valor="4"/>
-  <edge id="b1" source="B - ROXO" target="E - VERMELHO" valor="4"/>
-  <edge id="b2" source="B - ROXO" target="C - AZUL" valor="2"/>
-  <edge id="b3" source="B - ROXO" target=" J - VERMELHO" valor="3"/>
-  <edge id="c1" source="C - AZUL" target="I - ROXO" valor="1"/>
-  <edge id="c2" source="C - AZUL" target="E - VERMELHO" valor="4"/>
-  <edge id="c3" source="C - AZUL" target="D - ROXO" valor="4"/>
-  <edge id="d1" source="D - ROXO" target=" J - VERMELHO" valor="1"/>
-  <edge id="d2" source="D - ROXO" target="G - AZUL" valor="5"/>
-  <edge id="e1" source="E - VERMELHO" target="I - ROXO" valor="3"/>
-  <edge id="e2" source="E - VERMELHO" target="H - AZUL" valor="2"/>
-  <edge id="e3" source="E - VERMELHO" target="G - AZUL" valor="3"/>
-  <edge id="f1" source="F - ROXO" target="H - AZUL" valor="2"/>
-  <edge id="f2" source="F - ROXO" target="G - AZUL" valor="1"/>
-  <edge id="h1" source="H - AZUL" target=" J - VERMELHO" valor="2"/>
+<Graph id="" ordenacao="unidirected">
+  <Node id="a">
+    <visitado>2</visitado>
+    <distancia>0.0</distancia>
+    <arcos/>
+    <incidentes/>
+    <vizinhos/>
+  </Node>
+  <Node id="b">
+    <visitado>0</visitado>
+    <distancia>Infinity</distancia>
+    <arcos/>
+    <incidentes/>
+    <vizinhos/>
+  </Node>
+  <Node id="c">
+    <visitado>0</visitado>
+    <distancia>Infinity</distancia>
+    <arcos/>
+    <incidentes/>
+    <vizinhos/>
+  </Node>
+  <edge id="gg" source="a" target="b" valor="3"/>
+  <edge id="d" source="a" target="c" valor="4"/>
 </Graph>
