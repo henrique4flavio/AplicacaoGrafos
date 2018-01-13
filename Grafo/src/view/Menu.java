@@ -133,7 +133,11 @@ public class Menu extends javax.swing.JFrame {
         jLabel18 = new javax.swing.JLabel();
         jRadioButton2 = new javax.swing.JRadioButton();
         jRadioButton1 = new javax.swing.JRadioButton();
+<<<<<<< HEAD
         jButtonKruskal1 = new javax.swing.JButton();
+=======
+        jButtonMalgrange = new javax.swing.JButton();
+>>>>>>> 5eff6af24955cc8a7bea126e65c12a1ab8348758
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel3.setText("Inserir Aresta");
@@ -448,6 +452,7 @@ public class Menu extends javax.swing.JFrame {
         });
         getContentPane().add(jRadioButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 130, 138, 35));
 
+<<<<<<< HEAD
         jButtonKruskal1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jButtonKruskal1.setText("Kruskal");
         jButtonKruskal1.addActionListener(new java.awt.event.ActionListener() {
@@ -456,6 +461,16 @@ public class Menu extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButtonKruskal1, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 650, 100, 40));
+=======
+        jButtonMalgrange.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jButtonMalgrange.setText("Malgrange");
+        jButtonMalgrange.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonMalgrangeActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButtonMalgrange, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 650, 110, 40));
+>>>>>>> 5eff6af24955cc8a7bea126e65c12a1ab8348758
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -1024,9 +1039,92 @@ Vertice selecionado = listaVertice.get(0);
         grafo.setOrdenacao(TipoGrafo.directed);
     }//GEN-LAST:event_jRadioButton1grafoOrdenado
 
+<<<<<<< HEAD
     private void jButtonKruskal1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonKruskal1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButtonKruskal1ActionPerformed
+=======
+    private void jButtonMalgrangeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonMalgrangeActionPerformed
+        Grafo g = grafo.copiaGrafo(grafo, grafo.getNome() + "-malgrange");
+        List<String> ftd = new ArrayList<String>();
+        List<String> fti = new ArrayList<String>();
+        List<String> intersecao = new ArrayList<String>();
+        List<String> analisados = new ArrayList<String>();
+        List<String> analisados2 = new ArrayList<String>();
+
+        int qt = listaVertice.size();
+        grafo.criarMatrizAdjacencia(g);
+        int[][] matrizADJ = grafo.criarMatrizAdjacencia(g);
+
+        int i = 0, j = 0, contador = 0;
+
+        int proximoDaLista = 0;
+        ftd.add(0, listaVertice.get(0).getId());
+        analisados.add(i, listaVertice.get(0).getId());
+
+        while (contador < listaVertice.size()) {
+
+            while (j < qt) {
+
+                if (matrizADJ[i][j] == 1) {
+                    if (!ftd.contains(analisados)) {
+                        ftd.add(listaVertice.get(j).getId());
+                    }
+
+                }
+                j++;
+            }
+
+            proximoDaLista++;
+            analisados.add(i, listaVertice.get(i).getId());
+            i = proximoDaLista;
+            contador++;
+            j = 0;
+        }
+        List novaLista = new ArrayList(new HashSet(ftd));
+
+        contador = 0;
+        int proximoDaLista2 = 0;
+        i = 0;
+        j = 0;
+
+        fti.add(0, listaVertice.get(0).getId());
+        analisados2.add(j, listaVertice.get(0).getId());
+
+        while (contador < listaVertice.size()) {
+
+            while (i < qt) {
+
+                if (matrizADJ[i][j] == 1) {
+                    if (!fti.contains(analisados2)) {
+                        fti.add(listaVertice.get(i).getId());
+                    }
+
+                }
+                i++;
+            }
+
+            proximoDaLista2++;
+            analisados2.add(j, listaVertice.get(j).getId());
+            j = proximoDaLista2;
+            contador++;
+            i = 0;
+        }
+
+        List novaLista2 = new ArrayList(new HashSet(fti));
+
+        novaLista.retainAll(novaLista2);
+        intersecao.addAll(novaLista);
+
+        String imprimir = "(";
+        for (int r = 0; r < intersecao.size(); r++) {
+            imprimir += intersecao.get(r) + ",";
+        }
+        imprimir += ")";
+
+        JOptionPane.showMessageDialog(null, "Vértices Fortemente Conexos:\n" + imprimir);
+    }//GEN-LAST:event_jButtonMalgrangeActionPerformed
+>>>>>>> 5eff6af24955cc8a7bea126e65c12a1ab8348758
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -1079,7 +1177,12 @@ Vertice selecionado = listaVertice.get(0);
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButtonBuscaProfundidade;
     private javax.swing.JButton jButtonDijkstra;
+<<<<<<< HEAD
     private javax.swing.JButton jButtonKruskal1;
+=======
+    private javax.swing.JButton jButtonKruskal;
+    private javax.swing.JButton jButtonMalgrange;
+>>>>>>> 5eff6af24955cc8a7bea126e65c12a1ab8348758
     private javax.swing.JButton jButtonPrim;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel14;
