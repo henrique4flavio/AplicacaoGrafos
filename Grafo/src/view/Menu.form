@@ -354,19 +354,19 @@
         </Constraint>
       </Constraints>
     </Component>
-    <Component class="javax.swing.JButton" name="jButtonBuscaProfundidade">
+    <Component class="javax.swing.JButton" name="jButtonKruskal">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Tahoma" size="14" style="1"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Busca por Profundidade"/>
+        <Property name="text" type="java.lang.String" value="Kruskal"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonBuscaProfundidadeActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonKruskalActionPerformed"/>
       </Events>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="470" y="650" width="210" height="40"/>
+          <AbsoluteConstraints x="330" y="650" width="100" height="40"/>
         </Constraint>
       </Constraints>
     </Component>
@@ -599,25 +599,11 @@
         </Constraint>
       </Constraints>
     </Component>
-<<<<<<< HEAD
-    <Component class="javax.swing.JButton" name="jButtonKruskal1">
-=======
     <Component class="javax.swing.JButton" name="jButtonMalgrange">
->>>>>>> 5eff6af24955cc8a7bea126e65c12a1ab8348758
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Tahoma" size="14" style="1"/>
         </Property>
-<<<<<<< HEAD
-        <Property name="text" type="java.lang.String" value="Kruskal"/>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonKruskal1ActionPerformed"/>
-      </Events>
-      <Constraints>
-        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="330" y="650" width="100" height="40"/>
-=======
         <Property name="text" type="java.lang.String" value="Malgrange"/>
       </Properties>
       <Events>
@@ -626,7 +612,6 @@
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
           <AbsoluteConstraints x="470" y="650" width="110" height="40"/>
->>>>>>> 5eff6af24955cc8a7bea126e65c12a1ab8348758
         </Constraint>
       </Constraints>
     </Component>
