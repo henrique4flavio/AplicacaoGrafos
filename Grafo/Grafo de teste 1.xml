@@ -1,4 +1,4 @@
-<Graph id="Grafo de teste 1-kruskal" ordenacao="directed">
+<Graph id="Grafo de teste 1" ordenacao="directed">
   <Node id="A"/>
   <Node id="B"/>
   <Node id="C"/>
@@ -6,4 +6,5 @@
   <edge id="a1" source="A" target="B" valor="2"/>
   <edge id="b1" source="B" target="C" valor="2"/>
   <edge id="c1" source="C" target="D" valor="2"/>
+  <edge id="d1" source="D" target="A" valor="2"/>
 </Graph>

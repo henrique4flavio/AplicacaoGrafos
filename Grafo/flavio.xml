@@ -1,5 +1,0 @@
-<Graph id="flavio" ordenacao="unidirected">
-  <Node id="a"/>
-  <Node id="b"/>
-  <edge id="a1" source="a" target="b" valor="20"/>
-</Graph>

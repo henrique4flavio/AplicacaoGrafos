@@ -988,7 +988,7 @@ public class Menu extends javax.swing.JFrame {
                 break;
             }
         }
-        String T = "{";
+        /*String T = "{";
         for (Aresta aresta : arestas) {
             T += aresta.getNome() + ", ";
         }
@@ -996,7 +996,25 @@ public class Menu extends javax.swing.JFrame {
         g.getListaAresta().clear();
         g.novaListaAresta(arestas);
 
+   
         JOptionPane.showMessageDialog(null, "Conjunto de arestas da árvore geradora mínima:\n" + T);
+        */
+        String xml = xstream.toXML(g);
+
+        System.out.println(xml);
+        g = null;
+        g = (Grafo) xstream.fromXML(xml);
+
+        xml = xstream.toXML(g);
+        System.out.println(xml);
+        
+        try {
+            File xmlFile = new File("prim.xml");
+            JOptionPane.showMessageDialog(null, xml);
+            xstream.toXML(g, new FileWriter(xmlFile));
+        } catch (IOException ex) {
+            System.out.println("Erro ao Gravar Arquivo");
+        }
     }//GEN-LAST:event_jButtonPrimActionPerformed
 
     private void jButtonKruskalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonKruskalActionPerformed
@@ -1068,6 +1086,7 @@ public class Menu extends javax.swing.JFrame {
 
         xml = xstream.toXML(g);
         System.out.println(xml);
+
 
         try {
             File xmlFile = new File("kruskal.xml");
