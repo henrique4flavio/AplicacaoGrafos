@@ -991,7 +991,7 @@ grafo.setListaAresta(aresta);
                 break;
             }
         }
-        String T = "{";
+        /*String T = "{";
         for (Aresta aresta : arestas) {
             T += aresta.getNome() + ", ";
         }
@@ -999,10 +999,29 @@ grafo.setListaAresta(aresta);
         g.getListaAresta().clear();
         g.novaListaAresta(arestas);
 
+   
         JOptionPane.showMessageDialog(null, "Conjunto de arestas da árvore geradora mínima:\n" + T);
+        */
+        String xml = xstream.toXML(g);
+
+        System.out.println(xml);
+        g = null;
+        g = (Grafo) xstream.fromXML(xml);
+
+        xml = xstream.toXML(g);
+        System.out.println(xml);
+        
+        try {
+            File xmlFile = new File("prim.xml");
+            JOptionPane.showMessageDialog(null, xml);
+            xstream.toXML(g, new FileWriter(xmlFile));
+        } catch (IOException ex) {
+            System.out.println("Erro ao Gravar Arquivo");
+        }
     }//GEN-LAST:event_jButtonPrimActionPerformed
  
     private void jButtonBuscaProfundidadeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonBuscaProfundidadeActionPerformed
+<<<<<<< HEAD
 String verticeRaiz = JOptionPane.showInputDialog("Digite o vértice raiz:");
 String destino = JOptionPane.showInputDialog("Digite o vertice de busca:");
  ArrayList<String> vertices = new ArrayList<>();
@@ -1012,7 +1031,44 @@ String destino = JOptionPane.showInputDialog("Digite o vertice de busca:");
          
        
        
+=======
+Vertice selecionado = listaVertice.get(0);
+        ArrayList<String> vertices = new ArrayList<>();
+           String vert = null;
+        for(Vertice v : Grafo.percorreProfundidade(this.grafo, selecionado)){
+            // Observação = v.getToString.
+                 vert = v.getId() + " - " + Double.toString(v.obterDistancia());
+                vertices.add(vert);
+            }
+<<<<<<< HEAD
+        }
+        g.getListaAresta().clear();
+        g.novaListaAresta(novasArestas);
+
+        String xml = xstream.toXML(g);
+
+        System.out.println(xml);
+        g = null;
+        g = (Grafo) xstream.fromXML(xml);
+
+        xml = xstream.toXML(g);
+        System.out.println(xml);
+
+
+        try {
+            File xmlFile = new File("kruskal.xml");
+            JOptionPane.showMessageDialog(null, xml);
+            xstream.toXML(g, new FileWriter(xmlFile));
+        } catch (IOException ex) {
+            System.out.println("Erro ao Gravar Arquivo");
+        }
+    }//GEN-LAST:event_jButtonKruskalActionPerformed
+=======
+         JOptionPane.showMessageDialog(null, "Busca Por Profundidade:\n" + vert);
+        
+>>>>>>> cbeadc3cdaa9ee6e9311991ac92ea6862411797c
     }//GEN-LAST:event_jButtonBuscaProfundidadeActionPerformed
+>>>>>>> 1b61be095c46fdbdc97dc507cbde7ff8de24dd27
 
     private void jRadioButton2grafoNaoOrdenado(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton2grafoNaoOrdenado
         //Seta se o grafo é não ordenado
