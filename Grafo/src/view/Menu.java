@@ -6,6 +6,7 @@ import com.thoughtworks.xstream.XStream;
 import com.thoughtworks.xstream.io.xml.Dom4JDriver;
 import com.thoughtworks.xstream.io.xml.DomDriver;
 import java.io.File;
+import java.util.ArrayList;
 import java.io.FileWriter;
 import java.io.IOException;
 import static java.lang.Integer.parseInt;
@@ -117,7 +118,7 @@ public class Menu extends javax.swing.JFrame {
         jButtonDijkstra = new javax.swing.JButton();
         jLabel17 = new javax.swing.JLabel();
         jButtonPrim = new javax.swing.JButton();
-        jButtonKruskal = new javax.swing.JButton();
+        jButtonBuscaProfundidade = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTableAresta = new javax.swing.JTable();
@@ -132,7 +133,11 @@ public class Menu extends javax.swing.JFrame {
         jLabel18 = new javax.swing.JLabel();
         jRadioButton2 = new javax.swing.JRadioButton();
         jRadioButton1 = new javax.swing.JRadioButton();
+<<<<<<< HEAD
+        jButtonKruskal1 = new javax.swing.JButton();
+=======
         jButtonMalgrange = new javax.swing.JButton();
+>>>>>>> 5eff6af24955cc8a7bea126e65c12a1ab8348758
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel3.setText("Inserir Aresta");
@@ -297,14 +302,15 @@ public class Menu extends javax.swing.JFrame {
         });
         getContentPane().add(jButtonPrim, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 650, 100, 40));
 
-        jButtonKruskal.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jButtonKruskal.setText("Kruskal");
-        jButtonKruskal.addActionListener(new java.awt.event.ActionListener() {
+        jButtonBuscaProfundidade.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jButtonBuscaProfundidade.setText("Busca por Profundidade");
+        jButtonBuscaProfundidade.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonKruskalActionPerformed(evt);
+                jButtonBuscaProfundidadeActionPerformed(evt);
             }
         });
-        getContentPane().add(jButtonKruskal, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 650, 100, 40));
+        getContentPane().add(jButtonBuscaProfundidade, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 650, 210, 40));
+        jButtonBuscaProfundidade.getAccessibleContext().setAccessibleName("Busca por Profundidade");
 
         jTableAresta.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -446,6 +452,16 @@ public class Menu extends javax.swing.JFrame {
         });
         getContentPane().add(jRadioButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 130, 138, 35));
 
+<<<<<<< HEAD
+        jButtonKruskal1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jButtonKruskal1.setText("Kruskal");
+        jButtonKruskal1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonKruskal1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButtonKruskal1, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 650, 100, 40));
+=======
         jButtonMalgrange.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jButtonMalgrange.setText("Malgrange");
         jButtonMalgrange.addActionListener(new java.awt.event.ActionListener() {
@@ -454,6 +470,7 @@ public class Menu extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButtonMalgrange, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 650, 110, 40));
+>>>>>>> 5eff6af24955cc8a7bea126e65c12a1ab8348758
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -1017,63 +1034,16 @@ public class Menu extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jButtonPrimActionPerformed
 
-    private void jButtonKruskalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonKruskalActionPerformed
-
-        Grafo g = grafo.copiaGrafo(grafo, grafo.getNome() + "-kruskal");
-        List<Aresta> arestasOrdenadas = new ArrayList<Aresta>();
-        ArrayList<Aresta> novasArestas = new ArrayList<Aresta>();
-        List<Vertice> nosLigados = new ArrayList<Vertice>();
-        List<Vertice> nosSoltos = new ArrayList<Vertice>();
-        for (Aresta are : g.getListaAresta()) {
-            arestasOrdenadas.add(are);
-        }
-        Collections.sort(arestasOrdenadas);
-
-        int j = 0;
-        while (novasArestas.size() < (g.getListaVertice().size() - 1) && arestasOrdenadas.size() != j) {
-            for (Aresta ares : arestasOrdenadas) {
-                if (novasArestas.size() == 0) {
-                    nosLigados.add(g.getVerticePorId(ares.getSource()));
-                    nosLigados.add(g.getVerticePorId(ares.getTarget()));
-                    novasArestas.add(ares);
-                    j++;
-                } else if (nosLigados.contains(g.getVerticePorId(ares.getSource())) || nosLigados.contains(g.getVerticePorId(ares.getTarget()))) {
-                    if (nosLigados.contains(g.getVerticePorId(ares.getSource())) && nosLigados.contains(g.getVerticePorId(ares.getTarget()))) {
-                        if ((nosSoltos.contains(g.getVerticePorId(ares.getSource())) && !nosSoltos.contains(g.getVerticePorId(ares.getTarget()))) || (nosSoltos.contains(g.getVerticePorId(ares.getTarget())) && !nosSoltos.contains(g.getVerticePorId(ares.getSource())))) {
-                            novasArestas.add(ares);
-                            j++;
-                            nosSoltos.clear();
-                        }
-                    } else if (!nosSoltos.contains(g.getVerticePorId(ares.getSource())) && !nosSoltos.contains(g.getVerticePorId(ares.getTarget()))) {
-                        novasArestas.add(ares);
-                        j++;
-                        if (!nosLigados.contains(g.getVerticePorId(ares.getSource()))) {
-                            nosLigados.add(g.getVerticePorId(ares.getSource()));
-                        }
-                        if (!nosLigados.contains(g.getVerticePorId(ares.getTarget()))) {
-                            nosLigados.add(g.getVerticePorId(ares.getTarget()));
-                        }
-                    } else {
-                        novasArestas.add(ares);
-                        j++;
-                        if (!nosSoltos.contains(g.getVerticePorId(ares.getSource()))) {
-                            nosSoltos.add(g.getVerticePorId(ares.getSource()));
-                            nosLigados.add(g.getVerticePorId(ares.getSource()));
-                        }
-                        if (!nosSoltos.contains(g.getVerticePorId(ares.getTarget()))) {
-                            nosSoltos.add(g.getVerticePorId(ares.getTarget()));
-                            nosLigados.add(g.getVerticePorId(ares.getTarget()));
-                        }
-                    }
-                } else {
-                    novasArestas.add(ares);
-                    j++;
-                    nosLigados.add(g.getVerticePorId(ares.getSource()));
-                    nosLigados.add(g.getVerticePorId(ares.getTarget()));
-                    nosSoltos.add(g.getVerticePorId(ares.getSource()));
-                    nosSoltos.add(g.getVerticePorId(ares.getTarget()));
-                }
+    private void jButtonBuscaProfundidadeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonBuscaProfundidadeActionPerformed
+Vertice selecionado = listaVertice.get(0);
+        ArrayList<String> vertices = new ArrayList<>();
+           String vert = null;
+        for(Vertice v : Grafo.percorreProfundidade(this.grafo, selecionado)){
+            // Observação = v.getToString.
+                 vert = v.getId() + " - " + Double.toString(v.obterDistancia());
+                vertices.add(vert);
             }
+<<<<<<< HEAD
         }
         g.getListaAresta().clear();
         g.novaListaAresta(novasArestas);
@@ -1096,6 +1066,11 @@ public class Menu extends javax.swing.JFrame {
             System.out.println("Erro ao Gravar Arquivo");
         }
     }//GEN-LAST:event_jButtonKruskalActionPerformed
+=======
+         JOptionPane.showMessageDialog(null, "Busca Por Profundidade:\n" + vert);
+        
+    }//GEN-LAST:event_jButtonBuscaProfundidadeActionPerformed
+>>>>>>> 1b61be095c46fdbdc97dc507cbde7ff8de24dd27
 
     private void jRadioButton2grafoNaoOrdenado(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton2grafoNaoOrdenado
         //Seta se o grafo é não ordenado
@@ -1107,6 +1082,11 @@ public class Menu extends javax.swing.JFrame {
         grafo.setOrdenacao(TipoGrafo.directed);
     }//GEN-LAST:event_jRadioButton1grafoOrdenado
 
+<<<<<<< HEAD
+    private void jButtonKruskal1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonKruskal1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButtonKruskal1ActionPerformed
+=======
     private void jButtonMalgrangeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonMalgrangeActionPerformed
         Grafo g = grafo.copiaGrafo(grafo, grafo.getNome() + "-malgrange");
         List<String> ftd = new ArrayList<String>();
@@ -1187,6 +1167,7 @@ public class Menu extends javax.swing.JFrame {
 
         JOptionPane.showMessageDialog(null, "Vértices Fortemente Conexos:\n" + imprimir);
     }//GEN-LAST:event_jButtonMalgrangeActionPerformed
+>>>>>>> 5eff6af24955cc8a7bea126e65c12a1ab8348758
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -1237,9 +1218,14 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JButton criarMatrizIncidencia;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButtonBuscaProfundidade;
     private javax.swing.JButton jButtonDijkstra;
+<<<<<<< HEAD
+    private javax.swing.JButton jButtonKruskal1;
+=======
     private javax.swing.JButton jButtonKruskal;
     private javax.swing.JButton jButtonMalgrange;
+>>>>>>> 5eff6af24955cc8a7bea126e65c12a1ab8348758
     private javax.swing.JButton jButtonPrim;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel14;

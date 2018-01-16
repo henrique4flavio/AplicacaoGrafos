@@ -2,6 +2,7 @@
 package model;
 
 import java.util.ArrayList;
+import java.util.Stack;
 import model.Aresta;
 
 
@@ -234,5 +235,45 @@ public class Grafo {
         }
         return vertice;
     }
+    
+    
+    public static ArrayList<Vertice> percorreProfundidade(Grafo g, Vertice inicio) {
+        ArrayList<Vertice> resultado = new ArrayList();
+        for (Vertice vertice : g.getListaVertice()) {
+            vertice.zerarVisitas();
+            vertice.zerarDistancia();
+        }
+        inicio.visitar();
+        inicio.definirDistancia(0);
+        resultado.add(inicio);
+        Stack<Vertice> pilha = new Stack<>();
+        pilha.push(inicio);
+        while (!pilha.isEmpty()) {
+            Vertice u = pilha.peek();
+            Vertice adj = null;
+            double peso = 0;
+            for (Arco arco : u.obterArcos()) {
+                Vertice aux = arco.getDestino();
+                if (aux.obterVisitado() == 0) {
+                    adj = aux;
+                    peso = arco.getPeso();
+                    break;
+                }
+            }
+            if (adj != null) {
+                adj.visitar();
+                adj.definirDistancia(u.obterDistancia() + peso);
+                resultado.add(adj);
+                pilha.push(adj);
+            } else {
+                u.visitar();
+                pilha.pop();
+            }
+
+        }
+
+        return resultado;
+    }
 
 }
+ 
