@@ -1,0 +1,22 @@
+<Graph id="grafo3" ordenacao="directed">
+  <Node id="a">
+    <distancia>Infinity</distancia>
+    <arcos/>
+    <incidentes/>
+    <vizinhos/>
+    <visitado>false</visitado>
+  </Node>
+  <Node id="b">
+    <distancia>Infinity</distancia>
+    <arcos/>
+    <incidentes/>
+    <vizinhos/>
+    <visitado>false</visitado>
+  </Node>
+  <edge id="a" source="a" target="b" valor="1">
+    <visitado>false</visitado>
+  </edge>
+  <edge id="b" source="a" target="b" valor="5">
+    <visitado>false</visitado>
+  </edge>
+</Graph>

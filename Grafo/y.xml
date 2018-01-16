@@ -1,0 +1,19 @@
+<Graph id="y" ordenacao="directed">
+  <Node id="a">
+    <distancia>Infinity</distancia>
+    <arcos/>
+    <incidentes/>
+    <vizinhos/>
+    <visitado>false</visitado>
+  </Node>
+  <Node id="b">
+    <distancia>Infinity</distancia>
+    <arcos/>
+    <incidentes/>
+    <vizinhos/>
+    <visitado>false</visitado>
+  </Node>
+  <edge id="a4" source="a" target="b" valor="5">
+    <visitado>false</visitado>
+  </edge>
+</Graph>

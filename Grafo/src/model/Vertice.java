@@ -6,12 +6,14 @@ import java.util.List;
 public class Vertice {
 
     private String id;
-    private int visitado = 0;
+
     private double distancia = Double.POSITIVE_INFINITY;
- private final ArrayList<Arco> arcos = new ArrayList();
-    
+    private final ArrayList<Arco> arcos = new ArrayList();
+
     private ArrayList incidentes = new ArrayList();
     private ArrayList vizinhos = new ArrayList();
+
+    private boolean visitado = false;
 
     public Vertice(String id) {
         this.id = id;
@@ -41,6 +43,14 @@ public class Vertice {
         return id;
     }
 
+    public boolean isVisitado() {
+        return visitado;
+    }
+
+    public void setVisitado(boolean visitado) {
+        this.visitado = visitado;
+    }
+
     public static Vertice getVerticeById(String id, List<Vertice> nos) {
         for (Vertice no : nos) {
             if (no.getId().equals(id)) {
@@ -50,27 +60,55 @@ public class Vertice {
         return null;
     }
 
-    public void zerarVisitas() {
-        this.visitado = 0;
-    }
-
     public void zerarDistancia() {
         this.distancia = Double.POSITIVE_INFINITY;
     }
 
-    public void visitar() {
-        this.visitado++;
-    }
     public double obterDistancia() {
         return this.distancia;
     }
+
     public void definirDistancia(double distancia) {
         this.distancia = distancia;
     }
-    public int obterVisitado() {
-        return this.visitado;
-    }
-     public ArrayList<Arco> obterArcos() {
+
+    public ArrayList<Arco> obterArcos() {
         return this.arcos;
     }
+
+    public ArrayList<Vertice> getVizinhos() {
+        return vizinhos;
+    }
+
+    public void addIncidentes(Aresta incide) {
+        this.incidentes.add(incide);
+
+        //adicionando vizinhos a lista
+        if ((incide.getSource().equals(this.getNome()))
+                && (!this.isVizinho(incide.getTarget()))) {
+
+            this.addVizinhos(incide.getTarget());
+
+        } else if ((incide.getTarget().equals(this.getNome()))
+                && (!this.isVizinho(incide.getSource()))) {
+
+            this.addVizinhos(incide.getSource());
+        }
+    }
+
+    public void addVizinhos(String vizinho) {
+        this.vizinhos.add(vizinho);
+    }
+
+    public boolean isVizinho(String vizinho) {
+        int i;
+
+        for (i = 0; i < this.vizinhos.size(); i++) {
+            if (this.vizinhos.get(i).equals(vizinho)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
 }

@@ -1,0 +1,29 @@
+<Graph id="grf2" ordenacao="unidirected">
+  <Node id="a">
+    <distancia>Infinity</distancia>
+    <arcos/>
+    <incidentes/>
+    <vizinhos/>
+    <visitado>false</visitado>
+  </Node>
+  <Node id="b">
+    <distancia>Infinity</distancia>
+    <arcos/>
+    <incidentes/>
+    <vizinhos/>
+    <visitado>false</visitado>
+  </Node>
+  <Node id="c">
+    <distancia>Infinity</distancia>
+    <arcos/>
+    <incidentes/>
+    <vizinhos/>
+    <visitado>false</visitado>
+  </Node>
+  <edge id="a1" source="a" target="b" valor="5">
+    <visitado>false</visitado>
+  </edge>
+  <edge id="a8" source="a" target="c" valor="4">
+    <visitado>false</visitado>
+  </edge>
+</Graph>

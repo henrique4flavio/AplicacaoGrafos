@@ -1,0 +1,27 @@
+<Graph id="a">
+  <Node id="a">
+    <distancia>Infinity</distancia>
+    <arcos/>
+    <incidentes>
+      <edge id="a" source="a" target="b" valor="1">
+        <visitado>false</visitado>
+      </edge>
+    </incidentes>
+    <vizinhos>
+      <string>b</string>
+    </vizinhos>
+    <visitado>false</visitado>
+  </Node>
+  <Node id="b">
+    <distancia>Infinity</distancia>
+    <arcos/>
+    <incidentes>
+      <edge reference="../../../Node/incidentes/edge"/>
+    </incidentes>
+    <vizinhos>
+      <string>a</string>
+    </vizinhos>
+    <visitado>false</visitado>
+  </Node>
+  <edge reference="../Node/incidentes/edge"/>
+</Graph>

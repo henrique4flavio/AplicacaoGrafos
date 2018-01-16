@@ -1,0 +1,29 @@
+<Graph id="j">
+  <Node id="a">
+    <distancia>Infinity</distancia>
+    <arcos/>
+    <incidentes/>
+    <vizinhos/>
+    <visitado>false</visitado>
+  </Node>
+  <Node id="b">
+    <distancia>Infinity</distancia>
+    <arcos/>
+    <incidentes/>
+    <vizinhos/>
+    <visitado>false</visitado>
+  </Node>
+  <Node id="c">
+    <distancia>Infinity</distancia>
+    <arcos/>
+    <incidentes/>
+    <vizinhos/>
+    <visitado>false</visitado>
+  </Node>
+  <edge id="aq" source="a" target="b" valor="3">
+    <visitado>false</visitado>
+  </edge>
+  <edge id="r" source="a" target="c" valor="9">
+    <visitado>false</visitado>
+  </edge>
+</Graph>

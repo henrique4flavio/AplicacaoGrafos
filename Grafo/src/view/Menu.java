@@ -29,6 +29,7 @@ public class Menu extends javax.swing.JFrame {
     private Vertice vertice;
     private Aresta aresta;
     private Grafo grafo = new Grafo();
+     private Grafo resultado = new Grafo();
     private ArrayList<Vertice> listaVertice = new ArrayList<Vertice>();
     private ArrayList<Aresta> listaAresta = new ArrayList<Aresta>();
     private List<List<Vertice>> listaAdjacencia = new ArrayList<List<Vertice>>();
@@ -36,7 +37,9 @@ public class Menu extends javax.swing.JFrame {
     private List<Vertice> todosNos = new ArrayList<Vertice>();
     private List<Vertice> nosDestino = new ArrayList<Vertice>();
     private List<Vertice> nosOrigem = new ArrayList<Vertice>();
+    
     XStream xstream = new XStream(new DomDriver());
+    
 
     public Menu() {
         initComponents();
@@ -56,33 +59,7 @@ public class Menu extends javax.swing.JFrame {
 
     }
 
-    public List<Aresta> buscaProf(Vertice no) {
-        List<Aresta> arestasSelecionadas = new ArrayList<Aresta>();
-        List<Aresta> retornoArestas = new ArrayList<Aresta>();
-        nosVisitados.add(no);
-        for (List<Vertice> lista : listaAdjacencia) {
-            if (lista.get(0) == no) {
-                for (int i = 0; i < lista.size(); i++) {
-                    if (!nosVisitados.contains(lista.get(i))) {
-                        for (Aresta ares : listaAresta) {
-                            if ((no.getId().equals(ares.getSource()) && lista.get(i).getId().equals(ares.getTarget())) || (lista.get(i).getId().equals(ares.getSource()) && no.getId().equals(ares.getTarget()))) {
-                                for (Aresta are : buscaProf(lista.get(i))) {
-                                    arestasSelecionadas.add(are);
-                                }
-                                retornoArestas.add(ares);
-                                break;
-                            }
-                        }
-                    }
-                }
-                break;
-            }
-        }
-        for (Aresta are : arestasSelecionadas) {
-            retornoArestas.add(are);
-        }
-        return retornoArestas;
-    }
+    
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -133,11 +110,11 @@ public class Menu extends javax.swing.JFrame {
         jLabel18 = new javax.swing.JLabel();
         jRadioButton2 = new javax.swing.JRadioButton();
         jRadioButton1 = new javax.swing.JRadioButton();
-<<<<<<< HEAD
+
         jButtonKruskal1 = new javax.swing.JButton();
-=======
+
         jButtonMalgrange = new javax.swing.JButton();
->>>>>>> 5eff6af24955cc8a7bea126e65c12a1ab8348758
+
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel3.setText("Inserir Aresta");
@@ -452,7 +429,6 @@ public class Menu extends javax.swing.JFrame {
         });
         getContentPane().add(jRadioButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 130, 138, 35));
 
-<<<<<<< HEAD
         jButtonKruskal1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jButtonKruskal1.setText("Kruskal");
         jButtonKruskal1.addActionListener(new java.awt.event.ActionListener() {
@@ -461,7 +437,7 @@ public class Menu extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButtonKruskal1, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 650, 100, 40));
-=======
+
         jButtonMalgrange.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jButtonMalgrange.setText("Malgrange");
         jButtonMalgrange.addActionListener(new java.awt.event.ActionListener() {
@@ -470,7 +446,7 @@ public class Menu extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButtonMalgrange, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 650, 110, 40));
->>>>>>> 5eff6af24955cc8a7bea126e65c12a1ab8348758
+
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -491,16 +467,24 @@ public class Menu extends javax.swing.JFrame {
         } else {
             aresta.setValor(parseInt(valor.getText()));
         }
+        
+     
         aresta.setV1(listaVertice.get(vertice1.getSelectedIndex()));
         aresta.setV2(listaVertice.get(vertice2.getSelectedIndex()));
         listaAresta.add(aresta);
 
         textAresta.setText(null);
         valor.setText(null);
-
+        for(int i=0;i<grafo.getListaVertice().size();i++){
+            ArrayList<Vertice> v=   this.grafo.getListaVertice();
+            v.get(i).addIncidentes(aresta);
+        }
         DefaultTableModel linha = (DefaultTableModel) jTableAresta.getModel();
 
         linha.addRow(new String[]{aresta.getNome(), aresta.getSource(), aresta.getTarget(), Integer.toString(aresta.getValor())});
+grafo.setListaAresta(aresta);
+
+    
 
     }//GEN-LAST:event_inserirAresta
 
@@ -514,6 +498,8 @@ public class Menu extends javax.swing.JFrame {
         DefaultTableModel linha = (DefaultTableModel) jTableVertice.getModel();
         linha.addRow(new String[]{vertice.getId()});
         textVertice.setText(null);
+        
+        grafo.setListaVertice(vertice);
     }//GEN-LAST:event_inserirVertice
 
     private void vertice2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_vertice2ActionPerformed
@@ -1015,18 +1001,17 @@ public class Menu extends javax.swing.JFrame {
 
         JOptionPane.showMessageDialog(null, "Conjunto de arestas da árvore geradora mínima:\n" + T);
     }//GEN-LAST:event_jButtonPrimActionPerformed
-
+ 
     private void jButtonBuscaProfundidadeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonBuscaProfundidadeActionPerformed
-Vertice selecionado = listaVertice.get(0);
-        ArrayList<String> vertices = new ArrayList<>();
-           String vert = null;
-        for(Vertice v : Grafo.percorreProfundidade(this.grafo, selecionado)){
-            // Observação = v.getToString.
-                 vert = v.getId() + " - " + Double.toString(v.obterDistancia());
-                vertices.add(vert);
-            }
-         JOptionPane.showMessageDialog(null, "Busca Por Profundidade:\n" + vert);
-        
+String verticeRaiz = JOptionPane.showInputDialog("Digite o vértice raiz:");
+String destino = JOptionPane.showInputDialog("Digite o vertice de busca:");
+ ArrayList<String> vertices = new ArrayList<>();
+  ArrayList<Aresta> arestas = new ArrayList<Aresta>();
+           arestas = grafo.buscaEmProfundidade(verticeRaiz, destino);
+           System.out.println(""+arestas);
+         
+       
+       
     }//GEN-LAST:event_jButtonBuscaProfundidadeActionPerformed
 
     private void jRadioButton2grafoNaoOrdenado(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton2grafoNaoOrdenado
@@ -1039,11 +1024,11 @@ Vertice selecionado = listaVertice.get(0);
         grafo.setOrdenacao(TipoGrafo.directed);
     }//GEN-LAST:event_jRadioButton1grafoOrdenado
 
-<<<<<<< HEAD
+
     private void jButtonKruskal1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonKruskal1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButtonKruskal1ActionPerformed
-=======
+
     private void jButtonMalgrangeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonMalgrangeActionPerformed
         Grafo g = grafo.copiaGrafo(grafo, grafo.getNome() + "-malgrange");
         List<String> ftd = new ArrayList<String>();
@@ -1124,7 +1109,7 @@ Vertice selecionado = listaVertice.get(0);
 
         JOptionPane.showMessageDialog(null, "Vértices Fortemente Conexos:\n" + imprimir);
     }//GEN-LAST:event_jButtonMalgrangeActionPerformed
->>>>>>> 5eff6af24955cc8a7bea126e65c12a1ab8348758
+
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -1177,12 +1162,11 @@ Vertice selecionado = listaVertice.get(0);
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButtonBuscaProfundidade;
     private javax.swing.JButton jButtonDijkstra;
-<<<<<<< HEAD
+
     private javax.swing.JButton jButtonKruskal1;
-=======
+
     private javax.swing.JButton jButtonKruskal;
     private javax.swing.JButton jButtonMalgrange;
->>>>>>> 5eff6af24955cc8a7bea126e65c12a1ab8348758
     private javax.swing.JButton jButtonPrim;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel14;
