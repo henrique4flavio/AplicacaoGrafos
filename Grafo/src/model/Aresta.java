@@ -9,6 +9,10 @@ public class Aresta implements Comparable<Aresta> {
 
     private String id, source, target;
     private Vertice v1;
+
+    private boolean visitado = false;
+
+   
     private Vertice v2;
     private int valor = 0;
 
@@ -40,7 +44,13 @@ public class Aresta implements Comparable<Aresta> {
             return 0;
         }
     }
+public String getId() {
+        return id;
+    }
 
+    public void setId(String id) {
+        this.id = id;
+    }
     public String getSource() {
         return source;
     }
@@ -99,4 +109,13 @@ public class Aresta implements Comparable<Aresta> {
         }
         return null;
     }
+
+   public boolean isVisitado() {
+		return visitado;
+	}
+ public void setVisitado(boolean visitado) {
+        this.visitado = visitado;
+    }
+	
+    
 }

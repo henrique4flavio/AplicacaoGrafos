@@ -1,13 +1,19 @@
-<Graph id="" ordenacao="directed">
-  <Node id="A"/>
-  <Node id="B"/>
-  <Node id="C"/>
-  <Node id="D"/>
-  <Node id="E"/>
-  <edge id="a1" source="A" target="B" valor="2"/>
-  <edge id="b1" source="B" target="C" valor="2"/>
-  <edge id="c1" source="C" target="D" valor="2"/>
-  <edge id="a2" source="A" target="C" valor="3"/>
-  <edge id="c2" source="C" target="C" valor="2"/>
-  <edge id="e1" source="B" target="E" valor="5"/>
+<Graph id="">
+  <Node id="a">
+    <distancia>Infinity</distancia>
+    <arcos/>
+    <incidentes/>
+    <vizinhos/>
+    <visitado>false</visitado>
+  </Node>
+  <Node id="b">
+    <distancia>Infinity</distancia>
+    <arcos/>
+    <incidentes/>
+    <vizinhos/>
+    <visitado>false</visitado>
+  </Node>
+  <edge id="a" source="a" target="b" valor="3">
+    <visitado>false</visitado>
+  </edge>
 </Graph>
