@@ -1,16 +1,11 @@
-/*
-    Arquivo versão 4.0
-    Contempla o uso de buscas, árvores geradoras mínimas, caminho mínimo e fluxo máximo.
-*/
-
 package model;
 
-public class Arco implements Comparable<Arco>{
-    
+public class Arco implements Comparable<Arco> {
+
     private Vertice destino;
     private Vertice origem;
     private double peso;
-    
+
     public Arco(Vertice origem, Vertice destino, double peso) {
         this.origem = origem;
         this.destino = destino;
@@ -28,7 +23,7 @@ public class Arco implements Comparable<Arco>{
     public double getPeso() {
         return peso;
     }
-    
+
     private boolean seguro;
 
     public boolean isSeguro() {
@@ -38,7 +33,7 @@ public class Arco implements Comparable<Arco>{
     public void setSeguro(boolean seguro) {
         this.seguro = seguro;
     }
-    
+
     @Override
     public String toString() {
         return this.destino.toString() + "," + this.peso;
@@ -54,8 +49,8 @@ public class Arco implements Comparable<Arco>{
         }
         return 0;
     }
-    
-        private double fluxo = 0;
+
+    private double fluxo = 0;
 
     /**
      * Obter o valor de fluxo

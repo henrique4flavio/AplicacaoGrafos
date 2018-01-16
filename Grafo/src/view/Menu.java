@@ -133,6 +133,8 @@ public class Menu extends javax.swing.JFrame {
         jRadioButton2 = new javax.swing.JRadioButton();
         jRadioButton1 = new javax.swing.JRadioButton();
         jButtonMalgrange = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
+        jButton4 = new javax.swing.JButton();
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel3.setText("Inserir Aresta");
@@ -286,7 +288,7 @@ public class Menu extends javax.swing.JFrame {
 
         jLabel17.setFont(new java.awt.Font("Comic Sans MS", 1, 24)); // NOI18N
         jLabel17.setText("Implementações complexas:");
-        getContentPane().add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 600, -1, -1));
+        getContentPane().add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 590, -1, -1));
 
         jButtonPrim.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jButtonPrim.setText("Prim");
@@ -454,6 +456,25 @@ public class Menu extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButtonMalgrange, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 650, 110, 40));
+
+        jButton1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jButton1.setText("Busca Por Profundidade");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 650, 180, 40));
+
+        jButton4.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jButton4.setText("Busca Por Largura");
+        jButton4.setActionCommand("");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 650, 170, 40));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -752,7 +773,7 @@ public class Menu extends javax.swing.JFrame {
         try {
             ViewGraph.generateViewGraphByFrame(grafo.getNome() + ".xml");
         } catch (EGraphViewExcpetion ex) {
-            JOptionPane.showMessageDialog(null,"-->" + ex.getMensagem());
+            JOptionPane.showMessageDialog(null, "-->" + ex.getMensagem());
         }
     }//GEN-LAST:event_jToggleButton1mostrarGrafo
 
@@ -998,7 +1019,7 @@ public class Menu extends javax.swing.JFrame {
 
    
         JOptionPane.showMessageDialog(null, "Conjunto de arestas da árvore geradora mínima:\n" + T);
-        */
+         */
         String xml = xstream.toXML(g);
 
         System.out.println(xml);
@@ -1007,7 +1028,7 @@ public class Menu extends javax.swing.JFrame {
 
         xml = xstream.toXML(g);
         System.out.println(xml);
-        
+
         try {
             File xmlFile = new File("prim.xml");
             JOptionPane.showMessageDialog(null, xml);
@@ -1086,7 +1107,6 @@ public class Menu extends javax.swing.JFrame {
 
         xml = xstream.toXML(g);
         System.out.println(xml);
-
 
         try {
             File xmlFile = new File("kruskal.xml");
@@ -1188,6 +1208,29 @@ public class Menu extends javax.swing.JFrame {
         JOptionPane.showMessageDialog(null, "Vértices Fortemente Conexos:\n" + imprimir);
     }//GEN-LAST:event_jButtonMalgrangeActionPerformed
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        String verticeRaiz = JOptionPane.showInputDialog("Digite o vértice raiz:");
+        String destino = JOptionPane.showInputDialog("Digite o vertice de busca:");
+        ArrayList<String> vertices = new ArrayList<>();
+        Vertice selecionado = null;
+        ArrayList<Aresta> aresta = new ArrayList<Aresta>();
+        aresta = grafo.buscaEmProfundidade(verticeRaiz, destino);
+        System.out.println("aresta:" + aresta);
+        JOptionPane.showMessageDialog(null, "Arvore:" + aresta);
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        String verticeRaiz = JOptionPane.showInputDialog("Digite o vértice raiz:");
+        String destino = JOptionPane.showInputDialog("Digite o vertice de busca:");
+        ArrayList<String> vertices = new ArrayList<>();
+        Vertice selecionado = null;
+        ArrayList<Aresta> aresta = new ArrayList<Aresta>();
+        aresta = grafo.buscaEmLargura(verticeRaiz, destino);
+        System.out.println("aresta:" + aresta);
+        JOptionPane.showMessageDialog(null, "Arvore:" + aresta);        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton4ActionPerformed
+
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -1235,8 +1278,10 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.ButtonGroup buttonGroup4;
     private javax.swing.ButtonGroup buttonGroup5;
     private javax.swing.JButton criarMatrizIncidencia;
+    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
     private javax.swing.JButton jButtonDijkstra;
     private javax.swing.JButton jButtonKruskal;
     private javax.swing.JButton jButtonMalgrange;
